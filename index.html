@@ -1,313 +1,242 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienestar Consultora</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienestar Consultora - Expertos en Higiene, Seguridad y Salud Laboral</title>
+    <meta name="description" content="Bienestar Consultora: Expertos en Higiene, Seguridad y Salud Laboral. Protegemos tu empresa y cuidamos a tu equipo.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="image.png" type="image/png">
+    <script type="importmap">
+        {
+            "imports": {
+                "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.min.js",
+                "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
+                "simplex-noise": "https://cdn.jsdelivr.net/npm/simplex-noise@4.0.1/+esm"
+            }
+        }
+    </script>
+    <script src="script.js" type="module"></script>
 </head>
 
 <body>
-  <header>
     <nav>
-      <div class="logo">
-        <img src="/1d4e5ab6-ab31-4523-854f-d4c3e9b319a1_LOGO-BIENESTAR-hd.webp" alt="Bienestar Consultora Logo">
-        Bienestar Consultora
-      </div>
-      <div class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#quienes-somos">Quiénes Somos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#mision-vision">Misión y Valores</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+        <div class="logo">
+            <a href="#">
+                <img src="/landing/Recursos/icon.png" alt="Bienestar Consultora Logo" style="height: 70px; vertical-align: middle; margin-right: 5px;">
+                Bienestar Consultora
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#por-que-elegirnos">¿Por qué elegirnos?</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#iffies">Ellos confían en nosotros</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Bienestar Consultora</h1>
-      <p>Expertos en higiene, seguridad y salud laboral.</p>
-      <a href="#contacto" class="cta-button">Contáctanos</a>
-    </div>
-  </section>
+    <header>
+        <h1>Bienestar Consultora</h1>
+        <p>Expertos en Higiene, Seguridad y Salud Laboral</p>
+        <p>Protegemos tu empresa. Cuidamos a tu equipo.</p>
+    </header>
 
-  <section id="quienes-somos" class="section">
-    <br>
-    <h2>Quiénes Somos</h2>
-    <p>
-      Somos una consultora, conformada por un equipo De profesionales, instruidos y avalados por Nuestra amplia
-      formación y experiencia de más de 10 años en el trabajo de campo, en materia de higiene, seguridad y salud
-      laboral. Brindamos servicios enfocados a la promoción de la cultura en seguridad y conciencia ambiental, por
-      medio de herramientas funcionales y flexibles, que nos permiten adaptarnos a las diversas necesidades de nuestros
-      clientes. Nuestra prioridad es garantizar ambientes de trabajos seguros. Implementando acciones efectivas en
-      materia de prevencion, validadas por nuestro compromiso profesional. Brindamos servicios enfocados a la
-      promoción de la cultura en seguridad y conciencia ambiental, por medio de herramientas funcionales y flexibles,
-      que nos permiten adaptarnos a las diversas necesidades de nuestros clientes. Nuestra prioridad es garantizar
-      ambientes de trabajos seguros. Implementando acciones efectivas en materia de prevencion, validadas por nuestro
-      compromiso profesional.
-    </p>
-  </section>
+    <section id="intro">
+        <h2>La seguridad laboral no es una opción, es una necesidad.</h2>
+        <p>En Bienestar Consultora, garantizamos que tu empresa cumpla con la normativa y sea un espacio seguro para todos. Con más de 10 años de experiencia, ofrecemos soluciones innovadoras y personalizadas que reducen riesgos y mejoran la productividad de tu equipo.</p>
+        <div class="cta-container">
+            <a href="#servicios" class="cta-button">Nuestros Servicios</a>
+            <a href="#contacto" class="cta-button">Contáctanos</a>
+        </div>
+    </section>
 
-  <section id="servicios" class="section">
-    <h2>Nuestros Servicios</h2>
-    <div class="servicios-grid">
-      <!-- Habilitaciones -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/1150/1150104.png" alt="Habilitaciones">
-        <h3>Habilitaciones</h3>
-        <ul>
-          <li>Planeamiento</li>
-          <li>Inspecciones</li>
-          <li>Habitabilidad</li>
-          <li>Factibilidad</li>
-          <li>Municipalidad: departamento eléctrico: certificado por profesional matriculado.</li>
-          <li>Bomberos: profesional matriculado.</li>
-          <li>Salud pública.</li>
-          <li>Medio ambiente.</li>
-          <li>Habilitación de gas</li>
-        </ul>
-      </div>
+    <section id="por-que-elegirnos">
+        <h2>¿Por qué elegirnos?</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="/landing/Recursos/cumplimiento.svg" alt="Cumplimiento" class="card-image">
+                <h3>✅ Cumplimiento sin complicaciones</h3>
+                <p>Nos aseguramos de que tu empresa cumpla con la Ley 19.587/72, evitando sanciones y garantizando tranquilidad.</p>
+            </div>
+            <div class="card">
+                <img src="/landing/Recursos/productividad.svg" alt="Riesgos" class="card-image">
+                <h3>✅ Menos riesgos, más productividad</h3>
+                <p>Reducimos accidentes y enfermedades laborales, mejorando el rendimiento y bienestar de tu equipo.</p>
+            </div>
+            <div class="card">
+                <img src="/landing/Recursos/planes.svg" alt="Estrategias" class="card-image">
+                <h3>✅ Estrategias personalizadas</h3>
+                <p>Cada empresa es única. Diseñamos planes a medida para garantizar entornos de trabajo seguros y eficientes.</p>
+            </div>
+            <div class="card">
+                <img src="/landing/Recursos/Acompañamiento.svg" alt="Acompañamiento" class="card-image">
+                <h3>✅ Acompañamiento experto</h3>
+                <p>Un equipo de profesionales certificados, listos para asesorarte en cada paso del proceso.</p>
+            </div>
+            <div class="card">
+                <img src="/landing/Recursos/prevencion.svg" alt="Prevencion" class="card-image">
+                <h3>✅  Prevención proactiva de riesgos</h3>
+                <p>Identificamos y abordamos posibles peligros antes de que se conviertan en problemas, minimizando accidentes y garantizando un entorno laboral más seguro.</p>
+            </div>
+            <div class="card">
+                <img src="/landing/Recursos/Respuesta.svg" alt="Respuesta rapida" class="card-image">
+                <h3>✅ Respuesta rápida y atención personalizada</h3>
+                <p>Brindamos un servicio ágil y cercano, con asesoramiento inmediato para resolver cualquier inquietud o emergencia en tu empresa.</p>
+            </div>
+        </div>
+    </section>
 
-      <!-- Asesoramiento y supervisión -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/2776/2776399.png" alt="Asesoramiento y supervisión">
-        <h3>Asesoramiento y supervisión</h3>
-        <ul>
-          <li>Programa de seguridad y aviso de obra.</li>
-          <li>Servicio de supervisión en obra a cargo de licenciados y técnicos matriculados.</li>
-          <li>Resolución actas sst srt,municipalidad.</li>
-          <li>Confección rar/rgrl.</li>
-          <li>Cartelería y señalética</li>
-          <li>Diseños de protocolos.</li>
-          <li>Control y uso de e.p.p.</li>
-          <li>Planillas de seguridad: ats (análisis de trabajo seguro), permisos de trabajos, check list.</li>
-          <li>Gestión art.</li>
-        </ul>
-      </div>
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="service-container">
+            <div class="service-card">
+                <img src="/landing/Recursos/ley.png" alt="Habilitaciones y Certificaciones"class="card-image">
+                <h3>Habilitaciones y Certificaciones</h3>
+                <p>Gestión integral para operar con total seguridad y en regla.</p>
+                <ul>
+                    <li>✅ Certificados de gas, electricidad e incendios.</li>
+                    <li>✅ Planos eléctricos y puesta a tierra.</li>
+                    <li>✅ Habilitaciones municipales y ambientales.</li>
+                </ul>
+            </div>
 
-      <!-- Estudios de ergonomía -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/2588/2588910.png" alt="Estudios de ergonomía">
-        <h3>Estudios de ergonomía según res. 866/15</h3>
-        <p>Evaluación por puesto de trabajo teniendo en cuenta factores de repetitividad,
-          Evantamiento de carga, posturas forzadas, confort térmico entre otros, con la finalidad de obtener un
-          puesto de trabajo apto en materia de seguridad laboral.</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/EPP.jpg" alt="Asesoramiento y Supervisión Externa" class="card-image">
+                <h3>Asesoramiento y Supervisión Externa</h3>
+                <p>Supervisión experta para garantizar seguridad en cada detalle.</p>
+                <ul>
+                    <li>✅ Inspecciones, avisos de obra y resolución de actas.</li>
+                    <li>✅ Señalética, protocolos y gestión de EPP.</li>
+                    <li>✅ Programas de seguridad adaptados a tu industria.</li>
+                </ul>
+            </div>
 
-      <!-- Medición de iluminación y ruido -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/992/992594.png" alt="Medición de iluminación y ruido">
-        <h3>Medición de iluminación y ruido según res. 85/12 – res. 84/12.</h3>
-        <p>Realización de mediciones, emisión de informe final y sus espectivas sugerencias en caso de detectar
-          parámetros fuera de los estipulados por la law.</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/ergonimia.png" alt="Estudios de Ergonomía y Condiciones Laborales" class="card-image">
+                <h3>Estudios de Ergonomía y Condiciones Laborales</h3>
+                <p>Optimizamos el bienestar y la eficiencia en el trabajo.</p>
+                <ul>
+                    <li>✅ Evaluación de posturas, carga laboral y confort térmico.</li>
+                    <li>✅ Medición de iluminación y ruido según normativa.</li>
+                </ul>
+            </div>
 
-      <!-- Seguimientos e investigación de accidentes -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/184/184380.png"
-          alt="Seguimientos e investigación de accidentes">
-        <h3>Seguimientos e investigación de accidentes.</h3>
-        <p>Disminución de los costos asociados a los accidentes y enfermedades profesionales.
-          Identificación de personal tendiente a acciones inseguras.
-          Disminución de primas de a.r.t.</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/investigacion.png" alt="Investigación de Accidentes y Prevención" class="card-image">
+                <h3>Investigación de Accidentes y Prevención</h3>
+                <p>Estrategias efectivas para minimizar riesgos.</p>
+                <ul>
+                    <li>✅ Identificación de factores causales.</li>
+                    <li>✅ Reducción de costos y primas de ART.</li>
+                    <li>✅ Implementación de políticas de “Cero Accidentes”.</li>
+                </ul>
+            </div>
 
-      <!-- Plan estratégico de seguridad -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/741/741810.png" alt="Plan estratégico de seguridad">
-        <h3>Plan estratégico de seguridad</h3>
-        <p>Formulación de propuestas de servicios en respuesta a las necesidades básicas y
-          Puntuales del cliente, orientadas al
-          cumplimiento de las exigencias principales de la normativa vigente
-          Planificacion de estrategias
-          Evitar multas por incumplimientos o sanciones. (ministerio de trabajo).
-          Crear una imagen de responsabilidad empresarial, al trabajar con una cultura proactiva en la gestión de los
-          accidentes.
-          Promover políticas de trabajo enfocadas en “cero” accidentes</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/estrategico.png" alt="Plan Estratégico de Seguridad" class="card-image">
+                <h3>Plan Estratégico de Seguridad</h3>
+                <p>Prevención y cumplimiento normativo en un solo plan.</p>
+                <ul>
+                    <li>✅ Soluciones personalizadas según el sector de tu empresa.</li>
+                </ul>
+            </div>
 
-      <!-- Capacitaciones -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/3079/3079315.png" alt="Capacitaciones">
-        <h3>Capacitaciones</h3>
-        <p>En bienestar consultora contamos con un amplio espacio de capacitaciones
-          Para los diversos mandos de cada empresa. Además de la disponibilidad del servicio en campo. Ejecutamos
-          cronogramas semanales, mensuales y anuales, con los temas de
-          capacitación más relevantes según rar.</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/capacitaciones.png" alt="Capacitaciones Personalizadas" class="card-image">
+                <h3>Capacitaciones Personalizadas</h3>
+                <p>Formación para un entorno laboral más seguro.</p>
+                <ul>
+                    <li>✅ Cursos en seguridad laboral adaptados a cada nivel.</li>
+                    <li>✅ Clases presenciales o en campo.</li>
+                    <li>✅ Capacitación en inglés para negocios.</li>
+                </ul>
+            </div>
 
-      <!-- Control de los sistemas de protección contra incendios -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/1517/1517426.png"
-          alt="Control de los sistemas de protección contra incendios">
-        <h3>Control de los sistemas de protección contra incendios</h3>
-        <ul>
-          <li>Estudio de carga de fuego.</li>
-          <li>Planes de evacuación.</li>
-          <li>Simulacros de incendio.</li>
-          <li>Formación y entrenamiento de brigadas de emergencia</li>
-        </ul>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/hambiental.png" alt="Gestión Ambiental" class="card-image">
+                <p>Compromiso con el futuro y el cumplimiento de normativas.</p>
+                <ul>
+                    <li>✅ Certificados de impacto ambiental.</li>
+                    <li>✅ Asesoramiento en inspecciones y regulaciones.</li>
+                </ul>
+            </div>
 
-      <!-- Auditorias internas -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/10004/10004648.png" alt="Auditorias internas">
-        <h3>Auditorias internas</h3>
-        <p>Relevamientos e inspecciones orientadas a la búsqueda de desvíos, no conformidades e incumplimiento con la
-          normativa vigente a cargo de auditores en norma iso 9.001-14.001 y 45.001, para posterior análisis y
-          desarrollo de respuestas que apunten a la mejora continua y/o garanticen la certificación final de la
-          norma
-          deseada por el cliente</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/rrhh.png" alt="Consultoría en Recursos Humanos" class="card-image">
+                <h3>Consultoría en Recursos Humanos</h3>
+                <p>El talento adecuado, en el lugar correcto.</p>
+                <ul>
+                    <li>✅ Selección de personal especializado.</li>
+                    <li>✅ Evaluación de puestos de trabajo.</li>
+                </ul>
+            </div>
 
-      <!-- Elaboración de instructivos y procedimientos de trabajo -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/478/478689.png"
-          alt="Elaboración de instructivos y procedimientos de trabajo">
-        <h3>Elaboración de instructivos y procedimientos de trabajo.</h3>
-        <p>Emisión de instructivos y procedimientos para el uso seguro de maquinarias y/o puestos de trabajo
-          específicos.
-          Incluyendo la capacitación y evaluación de
-          Comprensión del mismo por parte de los trabajadores involucrados</p>
-      </div>
+            <div class="service-card">
+                <img src="/landing/Recursos/auditorias.png" alt="Auditorías de Seguridad e Higiene" class="card-image">
+                <h3>Auditorías de Seguridad e Higiene</h3>
+                <p>Evaluamos y optimizamos las condiciones de trabajo en tu empresa.</p>
+                <ul>
+                    <li>✅ Diagnóstico completo de riesgos laborales.</li>
+                    <li>✅ Informe detallado con medidas correctivas y preventivas.</li>
+                    <li>✅ Seguimiento para garantizar el cumplimiento normativo.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-      <!-- Gestión ambiental -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/484/484172.png" alt="Gestión ambiental">
-        <h3>Gestión ambiental</h3>
-        <p>Gestion de habilitaciones area de medio ambiente.certificado de ambiente y dia (declaracion de impacto
-          ambiental.)
-          Asesoramiento en impacto ambiental.
-          Asesoramiento en inspecciones, y/o labrado de actas</p>
-      </div>
+    <section id="iffies">
+        <h2>Ellos confían en nosotros</h2>
+        <div class="logo-container">
+            <img src="arcor-logo.svg" alt="Arcor Logo">
+            <img src="ypf-logo.svg" alt="YPF Logo">
+            <img src="barrick-logo.svg" alt="Barrick Logo">
+            <img src="calidra-logo.svg" alt="Calidra Logo">
+            <img src="san-juan-de-los-olivos-logo.svg" alt="San Juan de los Olivos Logo">
+        </div>
+        <a href="#contacto" class="cta-button">Vos que estas esperando, Contactanos!</a>
+    </section>
 
-      <!-- Recursos humanos -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/2131/2131844.png" alt="Recursos humanos">
-        <h3>Recursos humanos</h3>
-        <p>Consultoria y asesoramiento en retención de talento.
-          Selección de personal.
-          Descripción de puestos de trbajos</p>
-      </div>
+    <section id="ubicacion">
+        <h2> Ubicación</h2>
+        <p>Laprida 70 oeste, J5400 San Juan</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.499749432433!2d-68.53944362457326!3d-31.53694468849677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x968141a95c8dd977%3A0x29c3558c0505c05b!2sLaprida%2070%20Oeste%2C%20J5400%20San%20Juan%2C%20Argentina!5e0!3m2!1sen!2sus!4v1718434495939!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
 
-      <!-- Inglés -->
-      <div class="servicio">
-        <img src="https://cdn-icons-png.flaticon.com/512/197/197434.png" alt="Inglés">
-        <h3>Inglés</h3>
-        <ul>
-          <li>Capacitaciones para empresas.</li>
-          <li>Capacitaciones laborales bilingües.</li>
-          <li>Inglés para negocios.</li>
-          <li>Clases de conversación empresarial</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <section id="contacto">
+        <h2> ¿Hablamos?</h2>
+        <p>Déjanos asesorarte con la mejor solución para tu empresa.</p>
 
-  <section id="logos">
-    <h2>Nuestros Clientes</h2>
-    <div class="logos-container">
-      <div class="logo-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Arcor_logo.svg/2560px-Arcor_logo.svg.png"
-          alt="Arcor">
-      </div>
-      <div class="logo-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/YPF_Logo.svg/2560px-YPF_Logo.svg.png"
-          alt="YPF">
-      </div>
-      <div class="logo-item">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Barrick_Gold_Corporation_Logo.svg/2560px-Barrick_Gold_Corporation_Logo.svg.png"
-          alt="Barrick">
-      </div>
-      <div class="logo-item">
-        <img src="https://www.calidra.com/wp-content/uploads/2023/07/logo-calidra.png" alt="Calidra">
-      </div>
-      <div class="logo-item">
-        <img src="https://alimentosanjuan.com.ar/wp-content/uploads/2022/08/nuevo-logo-san-juan-de-los-olivos.png"
-          alt="San Juan de los Olivos">
-      </div>
-    </div>
-  </section>
+        <form id="contact-form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
 
-  <section id="mision-vision" class="section">
-    <h2>Nuestra Misión</h2>
-    <p>Es garantizar el BIENESTAR integral de cada organización de un modo efectivo, a través de servicios proactivos
-      en temas pertinentes a higiene, seguridad y salud laboral Ejecutando diversas propuestas estratégicas como
-      respuesta a las necesidades de cada empresa que nos permitan alcanzar los resultados esperados por las mismas.</p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-    <h2>Nuestros Valores</h2>
-    <ul>
-      <li>Responsabilidad</li>
-      <li>Calidad</li>
-      <li>Honestidad</li>
-      <li>Compromiso</li>
-      <li>Respeto</li>
-      <li>Ética profesional</li>
-      <li>Confidencialidad</li>
-    </ul>
-  </section>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-  <section id="ubicacion" class="section">
-    <h2>Ubicación</h2>
-    <p>Dirección: Laprida 70 oeste, J5400 San Juan</p>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.149447215978!2d-68.53806482457495!3d-31.53414047395854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x968141a8c9788e17%3A0x63704efe5ca730a!2sLaprida%2070%20Oeste%2C%20J5400%20San%20Juan%2C%20Argentina!5e0!3m2!1sen!2sus!4v1698864075230!5m2!1sen!2sus"
-      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
 
-  <section id="contacto" class="section">
-    <h2>Contacto</h2>
-    <p>¡Estamos listos para ayudarte! Contáctanos para más información.</p>
-    <!-- Formulario de Contacto -->
-    <form id="contactForm">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
-      </div>
-      <div class="form-group">
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="cta-button">Enviar Mensaje</button>
-    </form>
+    </section>
+    <a href="https://wa.me/TUNRODEWHASTAP" class="whatsapp-button floating">
+        <img src="/landing/Recursos/whatsapp.png" alt="WhatsApp Icon"> Contáctanos por WhatsApp
+    </a>
 
-    <div class="social-links">
-      <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </section>
+    <footer>
+        <div class="social-icons">
+            <a href="#" target="_blank"><img src="facebook-icon.svg" alt="Facebook"></a>
+            <a href="#" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+            <a href="#" target="_blank"><img src="instagram-icon.svg" alt="Instagram"></a>
+        </div>
+        <p> 2024 Bienestar Consultora. Todos los derechos reservados.</p>
+    </footer>
 
-  <footer>
-    <p>&copy; 2023 Bienestar Consultora. Todos los derechos reservados.</p>
-  </footer>
-
-  <button id="scrollToTopBtn" aria-label="Volver al inicio">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
 </body>
 
 </html>

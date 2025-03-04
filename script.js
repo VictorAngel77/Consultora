@@ -1,81 +1,108 @@
-  $(document).ready(function () {
-    // Smooth scrolling for internal links
-    $('a[href^="#"]').on('click', function (event) {
-      var target = $(this.getAttribute('href'));
-      if (target.length) {
-        event.preventDefault();
-        $('html, body').stop().animate({
-          scrollTop: target.offset().top - 59 // Correct for header height
-        }, 800);
-      }
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM is fully loaded');
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50, // Adjust for navbar height
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
+    // Add event listeners or other initialization code here
+    const contactForm = document.getElementById('contact-form');
 
-  // Cuando se hace clic en el icono de hamburguesa, se activa o desactiva el menú
-  hamburger.addEventListener('click', (e) => {
-    e.stopPropagation(); // Evita que el evento se propague a document
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-  });
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-  // Cierra el menú cuando se hace clic fuera del menú
-  document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-      navLinks.classList.remove('active');
-      hamburger.classList.remove('active');
+            const formData = new FormData(contactForm);
+            const formDataObject = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://formspree.io/f/xyyqznyq', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formDataObject)
+                });
+
+                if (response.ok) {
+                    alert('¡Mensaje enviado con éxito!');
+                    contactForm.reset(); // Clear the form
+                } else {
+                    const errorData = await response.json();
+                    console.error('Form submission error:', errorData);
+                    alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                alert('Ocurrió un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.');
+            }
+        });
+    } else {
+        console.log('Contact form not found');
     }
-  });
 
-  // Cierra el menú al hacer clic en un enlace del menú
-  const menuLinks = document.querySelectorAll('.nav-links a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      hamburger.classList.remove('active');
+    // Intersection Observer for "Por qué elegirnos" section animation
+    const porQueElegirnosSection = document.getElementById('por-que-elegirnos');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                porQueElegirnosSection.classList.add('animate');
+                observer.unobserve(porQueElegirnosSection); // Animate only once
+            } else {
+                porQueElegirnosSection.classList.remove('animate');
+            }
+        });
+    }, {
+        threshold: 0.0 // Trigger when 50% of the section is visible
     });
-  });
-  
-    // Scroll to top animation
-    $('#scrollToTopBtn').on('click', function () {
-      $('html, body').animate({ scrollTop: 0 }, 800);
-      return false;
+
+    observer.observe(porQueElegirnosSection);
+
+    // Intersection Observer for "Nuestros Servicios" section animation
+    const serviciosSection = document.getElementById('servicios');
+    const observerServicios = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                serviciosSection.classList.add('animate');
+                observerServicios.unobserve(serviciosSection); // Animate only once
+            } else {
+                serviciosSection.classList.remove('animate');
+            }
+        });
+    }, {
+        threshold: 0.2 // Trigger when 20% of the section is visible
     });
 
-    // Form submission handling
-    $('#contactForm').on('submit', function (e) {
-      e.preventDefault();
-      var formData = $(this).serialize();
-      $.ajax({
-        url: 'https://formspree.io/f/YOUR_FORM_ID', // Replace with your Formspree endpoint
-        type: 'POST',
-        data: formData,
-        dataType: 'json',
-        beforeSend: function () {
-          $('#contactForm button[type="submit"]').prop('disabled', true).text('Enviando...');
-        },
-        success: function (data) {
-          $('#contactForm button[type="submit"]').prop('disabled', false).text('Mensaje Enviado');
-          $('#contactForm')[0].reset();
-          alert('¡Gracias! Su mensaje ha sido enviado.');
-        },
-        error: function (xhr, status, error) {
-          $('#contactForm button[type="submit"]').prop('disabled', false).text('Enviar Mensaje');
-          alert('Error: ' + error);
-        }
-      });
+    observerServicios.observe(serviciosSection);
+
+    // Intersection Observer for "Ellos confían en nosotros" section animation
+    const iffiesSection = document.getElementById('iffies');
+    const observerIffies = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                iffiesSection.classList.add('animate');
+                observerIffies.unobserve(iffiesSection); // Animate only once
+            } else {
+                iffiesSection.classList.remove('animate');
+            }
+        });
+    }, {
+        threshold: 0.2 // Trigger when 20% of the section is visible
     });
-  });
 
-  // Theme toggle function
-  function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-  }
-
-  // Check for saved theme
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
-
-  
+    observerIffies.observe(iffiesSection);
+});
