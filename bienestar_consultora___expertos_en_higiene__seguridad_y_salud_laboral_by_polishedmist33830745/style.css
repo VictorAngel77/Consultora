@@ -1,0 +1,581 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    background-image: url('/image-removebg-preview.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: rgba(51, 51, 51, 0.5);
+    /* Semi-transparent background */
+    backdrop-filter: blur(5px);
+    /* Apply a blur effect */
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    /* Ensure it stays on top */
+    display: flex;
+    /* Use flexbox to align items */
+    justify-content: space-around;
+    /* Distribute space evenly */
+    align-items: center;
+    /* Vertically center items */
+    width: 100%;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav .logo a {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Style the hamburger icon */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Hide the checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Show the navigation links when the checkbox is checked (menu is open) */
+#menu-toggle:checked + .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust based on your nav height */
+    left: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent background */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack logo and nav links vertically */
+        align-items: center; /* Center items horizontally */
+        padding: 1rem; /* Add padding */
+    }
+
+    .logo {
+        margin-bottom: 1rem; /* Add space between logo and nav links */
+    }
+
+    .nav-links {
+        width: 100%; /* Make nav links take up full width */
+        text-align: center; /* Center align nav links */
+        margin-bottom: 1rem; /* Add spacing */
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0; /* Add spacing around list items */
+    }
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide nav links on smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(51, 51, 51, 0.9);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    /* Style for the hamburger icon */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* Header Styles */
+header {
+    color: #fff;
+    padding: 8rem 0 13rem;
+    text-align: center;
+    background-image: url('directly-table-with-work-tools.jpg');
+    background-size: cover;
+    /* Cover the entire header */
+    background-position: center;
+    /* Center the image */
+    text-shadow: 2px 2px 4px #000000; /* Add a text shadow for better readability */
+    padding-bottom: 100px;
+    /* Reduced padding to make it shorter */
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 4rem 0 8rem;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Intro Section Styles */
+#intro {
+    background-color: #e9ecef;
+    padding: 2rem;
+    text-align: center;
+}
+
+#intro h2 {
+    color: #007BFF;
+}
+
+.cta-container {
+    margin-top: 1rem;
+    display: none; /* Hide the buttons */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+}
+
+/* Por qué elegirnos Section Styles */
+#por-que-elegirnos {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+    padding: 2rem;
+    text-align: center;
+}
+
+#por-que-elegirnos.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s; /* Delay the animation */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: relative; /* Required for image positioning */
+    overflow: hidden; /* Clip overflowing content */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    text-align: center;
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        /* Take full width on smaller screens */
+        max-width: 400px;
+        /* Set a maximum width for larger phones */
+        margin: 0 auto;
+        /* Center the cards */
+    }
+}
+
+.card-image {
+    margin-bottom: 10px;
+    opacity: 1;
+    position: relative;
+    z-index: 0;
+    width: 70px;
+    height: 70px;
+}
+
+.card svg {
+    width: 70px;
+    height: 70px;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 0 10px 5px #007BFF; /* Blue glow effect */
+}
+
+/* Animation for the border */
+@keyframes glow-border {
+    0% { border-color: #007BFF; }
+    50% { border-color: #fff; }
+    100% { border-color: #007BFF; }
+}
+
+.card:hover {
+    animation: glow-border 2s infinite;
+    border: 2px solid transparent;
+}
+
+/* Servicios Section Styles */
+#servicios {
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+#servicios.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+#servicios .service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#servicios .service-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 250px; 
+}
+
+/* Responsive adjustments for services */
+@media (max-width: 768px) {
+    #servicios .service-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        height: auto; /* Adjust height to fit content */
+    }
+
+    #servicios .service-container {
+        flex-direction: column; /* Stack service cards vertically */
+        align-items: center;
+    }
+}
+
+#servicios .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#servicios .service-card .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: opacity 0.3s ease;
+}
+
+#servicios .service-card:hover .front {
+    opacity: 0;
+}
+
+#servicios .service-card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 0.9em; 
+    box-sizing: border-box; 
+}
+
+#servicios .service-card:hover .back {
+    opacity: 1;
+}
+
+#servicios .service-card h3 {
+    color: #007BFF;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+#servicios .service-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+#servicios .service-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Style for the service icons */
+.service-icon {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    max-width: 100%; 
+    max-height: 50px; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+/* Clientes Section Styles */
+#clientes {
+    padding: 2rem;
+    text-align: center;
+}
+
+#iffies {
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+#iffies.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+/* Carousel Styles */
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.logo-item {
+    width: 150px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive adjustments for logos */
+@media (max-width: 768px) {
+    .logo-item {
+        width: 45%; /* Two logos per row */
+        height: 80px;
+    }
+}
+
+.logo-item img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%);
+}
+
+/* Ubicacion y Contacto Section Styles */
+.ubicacion-contacto-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribute space evenly */
+    align-items: stretch; /* Ensure equal height */
+    padding: 2rem;
+    background-color: #e9ecef; /* Same background color as intro */
+}
+
+#ubicacion,
+#contacto {
+    width: 45%; /* Take up 45% of the container width (leaving some space for margin) */
+    margin-bottom: 0; /* Remove the default margin */
+    text-align: center;
+}
+
+/* Responsive iframe for Ubicacion Section */
+#ubicacion iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border: 0;
+}
+
+/* Adjust the iframe size for smaller screens */
+@media (max-width: 768px) {
+    .ubicacion-contacto-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #ubicacion,
+    #contacto {
+        width: 90%; /* Take up full width on smaller screens */
+        margin-bottom: 2rem; /* Add margin between sections */
+    }
+}
+
+/* Contacto Section Styles */
+#contacto {
+    background-color: #e9ecef;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact-form label {
+    margin-top: 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Ensures padding is included in the width */
+}
+
+#contact-form button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* WhatsApp Button Styles */
+.whatsapp-button {
+    display: inline-block;
+    background-color: #25D366;
+    color: #fff;
+    padding: 0.3rem 0.7rem;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 1rem;
+    font-size: 0.9em; 
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .whatsapp-button {
+        padding: 0.4rem 0.8rem; /* Slightly reduce padding */
+        font-size: 0.8em; /* Slightly reduce font size */
+    }
+}
+
+.whatsapp-button img {
+    height: 16px; 
+    width: auto;
+    vertical-align: middle;
+    margin-right: 0.3rem; 
+}
+
+.whatsapp-button.floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    /* Ensure it floats above other content */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.social-icons {
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.social-icons img {
+    height: 30px;
+    width: auto;
+}
