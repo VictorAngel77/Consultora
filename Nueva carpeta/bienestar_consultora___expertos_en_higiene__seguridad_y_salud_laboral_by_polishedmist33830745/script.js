@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Trigger icon animations here after section animation
-                animateIcons();
+                animateCards();
             }
         });
     }, {
@@ -107,39 +107,21 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(porQueElegirnosSection);
 
     // Function to animate icons within the cards
-    function animateIcons() {
+    function animateCards() {
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
+            card.classList.add('animated'); // Add class to trigger CSS animation
             const svg = card.querySelector('svg');
             if (svg) {
                 // Trigger animation for each SVG icon
-                triggerSvgAnimation(svg);
+                //triggerSvgAnimation(svg);
 
                 // Reset animation on mouse hover
-                card.addEventListener('mouseover', () => {
+                /*card.addEventListener('mouseover', () => {
                     triggerSvgAnimation(svg);
-                });
+                });*/
             }
         });
-    }
-
-    // Function to trigger SVG animation
-    function triggerSvgAnimation(svg) {
-        // For now, let's just log a message, replace with actual animation logic
-        console.log('Animating SVG:', svg);
-
-        // Check if the SVG has a GSAP timeline associated with it
-        if (svg.animationTimeline) {
-            // Restart existing timeline if one is present
-            svg.animationTimeline.restart();
-        } else {
-            // Create and store a new GSAP timeline
-            svg.animationTimeline = gsap.timeline({ repeat: 0 });
-
-            // Example animation: scaling and rotating
-            svg.animationTimeline.to(svg, { duration: 1, scale: 1.2, rotate: 360, ease: "power2.out" });
-            svg.animationTimeline.to(svg, { duration: 0.5, scale: 1, rotate: 0, ease: "elastic.out(1, 0.3)" });
-        }
     }
 
     // Intersection Observer for "Nuestros Servicios" section animation
