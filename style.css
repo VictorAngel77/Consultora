@@ -2,245 +2,315 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f8f9fa; 
+    color: #343a40; 
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll on the body */
 }
 
 /* Navigation Styles */
 nav {
-    background-color: rgba(51, 51, 51, 0.5);
-    /* Semi-transparent background */
-    backdrop-filter: blur(5px);
-    /* Apply a blur effect */
-    color: #fff;
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    /* Ensure it stays on top */
-    display: flex;
-    /* Use flexbox to align items */
-    justify-content: space-around;
-    /* Distribute space evenly */
-    align-items: center;
-    /* Vertically center items */
-    width: 100%;
+    background-color: #e9ecef; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add a contrasting border */
+    border-bottom: 3px solid #409EFF; /* Use the same blue as the primary color */
 }
 
-nav .logo {
-    font-size: 1.5rem;
+nav .navbar-brand {
+    color: #0056b3; 
     font-weight: bold;
 }
 
-nav .logo a {
-    display: flex;
-    align-items: center;
+nav .navbar-brand img {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
-nav a {
+nav .nav-link {
     color: #fff;
-    text-decoration: none;
+    font-size: 1.2em; 
 }
 
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
+nav .nav-link:hover {
+    color: #fff; 
 }
 
-/* Style the hamburger icon */
-.hamburger {
-    display: none;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* Hide the checkbox */
-.menu-toggle {
-    display: none;
-}
-
-/* Show the navigation links when the checkbox is checked (menu is open) */
-#menu-toggle:checked + .nav-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* Adjust based on your nav height */
-    left: 0;
-    width: 100%;
-    background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent background */
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Responsive navigation */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hide nav links on smaller screens */
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: rgba(51, 51, 51, 0.9);
-        padding: 1rem;
-        text-align: center;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    /* Style for the hamburger icon */
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-}
 /* Header Styles */
 header {
     color: #fff;
     padding: 8rem 0 13rem;
     text-align: center;
-    background-image: url('directly-table-with-work-tools.jpg');
+    background: url('/directly-table-with-work-tools.jpg');
     background-size: cover;
-    /* Cover the entire header */
     background-position: center;
-    /* Center the image */
-    text-shadow: 2px 2px 4px #000000; /* Add a text shadow for better readability */
-    padding-bottom: 50px;
-    /* Reduced padding to make it shorter */
+    text-shadow: 2px 2px 4px #000000;
+    padding-bottom: 100px;
+    background-color: #343a40; 
 }
 
 header h1 {
     margin: 0;
+    text-shadow: 2px 2px 4px #000, 0 0 25px #000, 0 0 5px #000;
+    font-size: 3.5em;
+}
+
+header p {
+    text-shadow: 1px 1px 2px #000, 0 0 10px #000, 0 0 5px #000;
+    font-size: 1.8em;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 4rem 0 8rem;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.3em;
+    }
 }
 
 /* Intro Section Styles */
 #intro {
-    background-color: #e9ecef;
-    padding: 2rem;
+    background-color: #F2F6FC; 
+    padding: 4rem 2rem;
     text-align: center;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
 #intro h2 {
-    color: #007BFF;
+    color: #0056b3; 
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+}
+
+#intro p {
+    font-size: 1.2em;
+    line-height: 1.8;
 }
 
 .cta-container {
-    margin-top: 1rem;
-    display: none; /* Hide the buttons */
+    margin-top: 2rem;
 }
 
 .cta-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #28a745;
+    background-color: #409EFF;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     margin: 0 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
 }
 
 /* Por qué elegirnos Section Styles */
 #por-que-elegirnos {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease;
-    padding: 2rem;
+    background-color: #F2F6FC;
+    padding: 4rem 2rem;
     text-align: center;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
-#por-que-elegirnos.animate {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s; /* Delay the animation */
+#por-que-elegirnos h2 {
+    color: #0056b3; 
+    font-size: 2.5em;
+    margin-bottom: 2rem;
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .card {
-    background-color: #fff;
+    background-color: #f8f9fa; 
     border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    position: relative; /* Required for image positioning */
-    overflow: hidden; /* Clip overflowing content */
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    position: relative;
+    overflow: hidden;
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
+    transform: translateY(-5px);
 }
 
 .card-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     opacity: 1;
     position: relative;
     z-index: 0;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: block;
+}
+
+.card svg {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card.animated svg {
+    transform: rotate(360deg);
+}
+
+.card h3 {
+    color: #0056b3; 
+    font-size: 1.5em;
+    margin-bottom: 0.75rem;
+}
+
+.card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
 }
 
 /* Servicios Section Styles */
 #servicios {
-    padding: 2rem;
+    background-color: #F2F6FC; 
+    padding: 4rem 2rem;
     text-align: center;
-    opacity: 0; 
-    transform: translateY(20px); 
-    transition: all 1s ease;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
-#servicios.animate {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s; 
+#servicios h2 {
+    color: #0056b3; 
+    font-size: 2.5em;
+    margin-bottom: 2rem;
 }
 
 #servicios .service-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+}
+
+#servicios .more-services-button {
+    margin-top: 3rem;
 }
 
 #servicios .service-card {
     background-color: #fff;
     border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Smooth transition for hover effect */
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+    transition: transform 0.3s ease;
 }
 
 #servicios .service-card:hover {
     transform: translateY(-5px);
-    /* Slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Enhanced shadow on hover */
+}
+
+@media (max-width: 768px) {
+    #servicios .service-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    #servicios .service-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#servicios .service-card .front {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#servicios .service-card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+#servicios .service-card:not(:hover) .front {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#servicios .service-card:not(:hover) .back {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+#servicios .service-card:hover .front {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+#servicios .service-card:hover .back {
+    opacity: 1;
+    transform: scale(1);
 }
 
 #servicios .service-card h3 {
-    color: #007BFF;
+    color: #0056b3; 
     margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1.3em;
 }
 
 #servicios .service-card ul {
@@ -252,87 +322,225 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
-/* Style for the service icons */
-.service-icon {
-    width: 24px;
-    /* Adjust size as needed */
-    height: 24px;
+#servicios .service-icon {
     vertical-align: middle;
     margin-right: 0.5rem;
-    /* Space between icon and text */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
 /* Clientes Section Styles */
 #clientes {
     padding: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
-.logo-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.logo-container img {
-    height: 50px;
-    /* Adjust as needed */
-    width: auto;
-}
-
+/* Iffies Section Styles */
 #iffies {
-    padding: 2rem;
+    background-color: #F2F6FC;
+    padding: 4rem 2rem;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
-#iffies.animate {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
+#iffies h2 {
+    color: #0056b3; 
+    font-size: 2.5em;
+    margin-bottom: 2rem;
+}
+
+#iffies .cta-button {
+    margin-top: 2rem; 
 }
 
 /* Carousel Styles */
-.logo-carousel {
+.carousel {
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative; 
+}
+
+.carousel-inner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo-row {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-    padding-bottom: 1rem; /* Space for controls */
+    justify-content: space-around; /* Distribute logos evenly */
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px; /* Adjust gap between logos */
+    padding: 20px;
 }
 
-.logo-carousel img {
-    flex: none;
-    width: 200px; /* Adjust as needed */
+.logo-item {
+    width: auto; /* Adjust width to auto to fit content */
+    max-width: 180px; /* Limit max width if needed */
+    height: auto; /* Adjust height to auto to maintain aspect ratio */
+    max-height: 120px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    flex-basis: calc(25% - 20px); /* Example: 4 logos per row minus gap */
+    box-sizing: border-box;
+    min-width: 0; /* Ensure item can shrink below content size */
+}
+
+@media (max-width: 768px) {
+    .logo-item {
+        flex-basis: calc(50% - 20px); /* Two logos per row on smaller screens */
+        max-width: 100%; /* Ensure logos don't overflow container on small screens */
+    }
+    .logo-row {
+        justify-content: center; /* Center logos on smaller screens */
+    }
+}
+
+.logo-item img {
+    width: 100%;
     height: auto;
-    margin-right: 1rem;
-    scroll-snap-align: start;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-/* Hide scrollbar for Webkit-based browsers (Chrome, Safari) */
-.logo-carousel::-webkit-scrollbar {
-    display: none;
+.logo-item:hover img {
+    filter: none;
+    transform: scale(1.1);
 }
 
-/* Hide scrollbar for Firefox */
-.logo-carousel {
-    scrollbar-width: none;
+.logo-item img:not(:hover) {
+    filter: grayscale(100%);
+    transform: scale(1);
 }
 
-/* Ubicacion Section Styles */
-#ubicacion {
-    padding: 2rem;
+.carousel-indicators [data-bs-target] {
+    background-color: #409EFF; 
+    border-radius: 50%; 
+    width: 12px; 
+    height: 12px; 
+    margin: 0 5px; 
+    border: none; 
+    opacity: 0.5; 
+}
+
+.carousel-indicators .active {
+    background-color: #fff; 
+    opacity: 1; 
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto;
+    padding: 0;
+    opacity: 1; 
+    transition: opacity 0.3s ease;
+    position: absolute; 
+}
+
+.carousel-control-prev {
+    left: 20%;          
+    transform: translateX(-50%); 
+}
+
+.carousel-control-next {
+    right: 20%;         
+    transform: translateX(50%);  
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1; 
+}
+
+/* Ubicacion y Contacto Section Styles */
+.ubicacion-contacto-container {
+    flex-direction: row; /* Default to row layout */
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 4rem 2rem;
+    background-color: #f8f9fa; 
+    margin-bottom: 2rem;
+    display: flex; /* Ensure flexbox is enabled */
+    flex-wrap: wrap; /* Enable wrapping for responsiveness */
+}
+
+#ubicacion,
+#contacto {
+    width: 48%; /* Slightly less than half to account for gap if needed */
+    margin-bottom: 0;
     text-align: center;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+#ubicacion h2,
+#contacto h2 {
+    color: #0056b3; 
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+}
+
+#ubicacion iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    border: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .ubicacion-contacto-container {
+        flex-direction: column; /* Stack sections on smaller screens */
+        align-items: center;
+    }
+
+    #ubicacion,
+    #contacto {
+        width: 95%; /* Take up more width on smaller screens */
+        margin-bottom: 2rem;
+    }
+
+    #ubicacion iframe {
+        height: 250px;
+    }
 }
 
 /* Contacto Section Styles */
 #contacto {
+    background-color: #fff;
     padding: 2rem;
-    text-align: center;
-    background-color: #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
 #contact-form {
@@ -357,7 +565,6 @@ header h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    /* Ensures padding is included in the width */
 }
 
 #contact-form button {
@@ -368,24 +575,42 @@ header h1 {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-/* WhatsApp Button Styles */
+#contact-form button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    #contact-form {
+        max-width: 90%;
+    }
+}
+
 .whatsapp-button {
     display: inline-block;
     background-color: #25D366;
     color: #fff;
-    padding: 0.75rem 1.5rem;
+    padding: 0.3rem 0.7rem;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
     margin-top: 1rem;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8em;
+    }
 }
 
 .whatsapp-button img {
-    height: 20px;
+    height: 16px;
     width: auto;
     vertical-align: middle;
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
 }
 
 .whatsapp-button.floating {
@@ -393,15 +618,17 @@ header h1 {
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    /* Ensure it floats above other content */
 }
 
-/* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: #343a40; 
     color: #fff;
     text-align: center;
     padding: 1rem 0;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
 .social-icons {
@@ -416,4 +643,358 @@ footer {
 .social-icons img {
     height: 30px;
     width: auto;
+}
+
+/* Scroll-to-top button */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#scrollToTopBtn img {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+/* Responsive adjustments for the scroll-to-top button */
+@media (max-width: 768px) {
+    #scrollToTopBtn {
+        width: 30px;
+        height: 30px;
+        bottom: 10px;
+        left: 10px;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f8f9fa;
+}
+
+body.dark-mode nav {
+    background-color: rgba(30, 30, 30, 0.5);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode nav .navbar-brand {
+    color: #fff;
+}
+
+body.dark-mode nav .nav-link {
+    color: #ccc;
+}
+
+body.dark-mode #intro {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode #intro h2 {
+    color: #fff;
+}
+
+body.dark-mode #por-que-elegirnos,
+body.dark-mode #servicios,
+body.dark-mode #iffies {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .card {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .card h3,
+body.dark-mode #servicios .service-card h3 {
+    color: #fff;
+}
+
+body.dark-mode .service-card {
+    background-color: #444 !important;
+}
+
+body.dark-mode #contacto {
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #contact-form input,
+body.dark-mode #contact-form textarea {
+    border: 1px solid #555;
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a;
+}
+
+/* Dark Mode Toggle Styles */
+.dark-mode-toggle {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    margin-left: auto; 
+    margin-right: 15px; 
+}
+
+.dark-mode-checkbox {
+    display: none;
+}
+
+.dark-mode-label {
+    background-color: #333;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.2);
+}
+
+.dark-mode-label .sun,
+.dark-mode-label .moon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    color: #f8f9fa;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-label .sun {
+    transform: translateX(0);
+}
+
+.dark-mode-label .moon {
+    transform: translateX(20px);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .sun {
+    transform: translateX(20px);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .moon {
+    transform: translateX(0);
+}
+
+/* Modal styling */
+#moreServicesModal .modal-body {
+    padding: 20px;
+}
+
+#moreServicesModal .service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 20px;
+}
+
+#moreServicesModal .service-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+    transition: transform 0.3s ease;
+}
+
+#moreServicesModal .service-card:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    #moreServicesModal .service-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        height: auto;
+    }
+}
+
+#moreServicesModal .service-card .front {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#moreServicesModal .service-card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+#moreServicesModal .service-card:not(:hover) .front {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#moreServicesModal .service-card:not(:hover) .back {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+#moreServicesModal .service-card:hover .front {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+#moreServicesModal .service-card:hover .back {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#moreServicesModal .service-card h3 {
+    color: #0056b3;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#moreServicesModal .service-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+#moreServicesModal .service-card li {
+    margin-bottom: 0.5rem;
+}
+
+#moreServicesModal .service-icon {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+#moreServicesModal .modal-footer {
+    padding: 10px 20px;
+    text-align: center; 
+}
+
+#moreServicesModal .modal-footer .btn {
+    margin: 0; 
+}
+
+/* Dark Mode adjustments for the modal */
+body.dark-mode #moreServicesModal .modal-content {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #moreServicesModal .service-card {
+    background-color: #444;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #moreServicesModal .service-card h3 {
+    color: #fff;
+}
+
+/* Cotizar Modal Styles */
+#cotizarModal .modal-body {
+    padding: 20px;
+}
+
+#cotizar-form button[type="submit"] {
+    margin-top: 1rem;
+}
+
+#cotizarModal .modal-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+#cotizarModal .modal-content {
+    border-radius: 0.5rem;
+}
+
+#cotizarModal .modal-title {
+    color: #0056b3;
+}
+
+#cotizarModal .form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#cotizarModal .form-check-input:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+#cotizarModal .form-label {
+    font-weight: bold;
+    color: #343a40;
+}
+
+body.dark-mode #cotizarModal .modal-content {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #cotizarModal .modal-title {
+    color: #fff;
+}
+
+body.dark-mode #cotizarModal .form-label {
+    color: #eee;
+}
+
+body.dark-mode #cotizarModal .form-control {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode #cotizarModal .form-check-label {
+    color: #eee;
+}
+
+body.dark-mode #cotizarModal .modal-header {
+    border-bottom-color: #555;
 }
