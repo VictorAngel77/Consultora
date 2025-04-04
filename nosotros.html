@@ -24,29 +24,11 @@
 </head>
 
 <body>
-    <div class="dark-mode-toggle">
-        <input type="checkbox" class="dark-mode-checkbox" id="darkModeToggle">
-        <label class="dark-mode-label" for="darkModeToggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun sun">
-                <circle cx="12" cy="12" r="5" />
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon moon">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </label>
-    </div>
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(51, 51, 51, 0.5); backdrop-filter: blur(5px);">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="/image-removebg-preview.png" alt="Bienestar Consultora Logo" style="height: 50px; vertical-align: middle; margin-right: 5px;">
+            <a class="navbar-brand" href="#">
+                <img src="/recursos/logos/logo-Bienestar.png" alt="Bienestar Consultora Logo" style="height: 50px; vertical-align: middle; margin-right: 5px;">
                 Bienestar Consultora
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,22 +46,29 @@
                         <a class="nav-link" href="index.html#por-que-elegirnos">¿Por qué elegirnos?</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="index.html#iffies">Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#contacto">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="nav-link btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#cotizarModal">Cotizar Ahora</button>
+                        <button type="button" class="nav-link btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#cotizarModal" style="background-color: #007bff; border-color: #007bff;">Cotizar Ahora</button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header style="padding: 8rem 0 3rem; text-align: center; background-color: #343a40; color: #fff;">
-        <h1>BIENESTAR CONSULTORA</h1>
-        <p style="font-size: 1.2em; color: #ddd;">Conócenos</p>
+    <header id="intro">
+        <img id="bg-image" src="recursos/principal.png" alt="Background Image">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1>Bienestar Consultora</h1>
+            <p>Conocenos!!</p>
+        </div>
     </header>
 
     <section id="nosotros" style="padding: 4rem 2rem; text-align: left; margin-bottom: 2rem;">
@@ -147,20 +136,77 @@
         </div>
     </section>
 
-    <a href="https://wa.me/5492645883771" class="whatsapp-button floating" id="whatsappButton">
-        <img src="whatsapp-icon.svg" alt="WhatsApp Icon"> Contáctanos por WhatsApp
+    <a href="https://wa.me/542646113923" class="whatsapp-button floating" id="whatsappButton">
+        <img src="/recursos/logos/whatsapp.png" alt="WhatsApp Icon"> Contáctanos por WhatsApp
     </a>
 
-    <footer style="background-color: #343a40; color: #fff; text-align: center; padding: 1rem 0; margin-bottom: 2rem;">
-        <div class="social-icons">
-            <a href="#" target="_blank"><img src="facebook-icon.svg" alt="Facebook"></a>
-            <a href="#" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
-            <a href="#" target="_blank"><img src="instagram-icon.svg" alt="Instagram"></a>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/Bienestar_consultora/" target="_blank"><img src="/recursos/logos/instagram.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/bienestar-consultora-704a502a1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="/recursos/logos/linkedin.png" alt="LinkedIn"></a>
+            </div>
+            <div class="footer-nav-wrapper">
+                <nav class="footer-nav">
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#intro">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#por-que-elegirnos">¿Por qué elegirnos?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#servicios">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#iffies">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="recursos/logos/bienestar.png" alt="Logo Bienestar Consultora" >
+                </div>
+                <p class="footer-copyright">2025 Bienestar Consultora. Todos los derechos reservados.</p>
+
+            </div>
         </div>
-        <p> 2024 Bienestar Consultora. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Modal for Cotizar -->
+
+    <!-- Scroll-to-top button -->
+    <button id="scrollToTopBtn" title="Go to top">
+        <img src="arrow-up.svg" alt="Arrow up">
+    </button>
+
+    <!-- Modal for success messages -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">¡Éxito!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="successModalBody">
+                    <!-- Message will be dynamically inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for cotizar -->
     <div class="modal fade" id="cotizarModal" tabindex="-1" aria-labelledby="cotizarModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -173,55 +219,55 @@
                         <div class="mb-3">
                             <h3>Servicios de Interés</h3>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio1">
+                                <input class="form-check-input" type="checkbox" name="servicio1" value="on" id="servicio1">
                                 <label class="form-check-label" for="servicio1">
                                     Habilitaciones y Certificaciones
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio2">
+                                <input class="form-check-input" type="checkbox" name="servicio2" value="on" id="servicio2">
                                 <label class="form-check-label" for="servicio2">
                                     Asesoramiento y Supervisión Externa
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio3">
+                                <input class="form-check-input" type="checkbox" name="servicio3" value="on" id="servicio3">
                                 <label class="form-check-label" for="servicio3">
-                                    Estudios de Ergonómia y Condiciones Laborales
+                                    Estudios de Ergonomía y Condiciones Laborales
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio4">
+                                <input class="form-check-input" type="checkbox" name="servicio4" value="on" id="servicio4">
                                 <label class="form-check-label" for="servicio4">
                                     Investigación de Accidentes y Prevención
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio5">
+                                <input class="form-check-input" type="checkbox" name="servicio5" value="on" id="servicio5">
                                 <label class="form-check-label" for="servicio5">
                                     Plan Estratégico de Seguridad
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio6">
+                                <input class="form-check-input" type="checkbox" name="servicio6" value="on" id="servicio6">
                                 <label class="form-check-label" for="servicio6">
                                     Capacitaciones Personalizadas
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio7">
+                                <input class="form-check-input" type="checkbox" name="servicio7" value="on" id="servicio7">
                                 <label class="form-check-label" for="servicio7">
                                     Gestión Ambiental
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio8">
+                                <input class="form-check-input" type="checkbox" name="servicio8" value="on" id="servicio8">
                                 <label class="form-check-label" for="servicio8">
                                     Consultoría en Recursos Humanos
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio9">
+                                <input class="form-check-input" type="checkbox" name="servicio9" value="on" id="servicio9">
                                 <label class="form-check-label" for="servicio9">
                                     Auditorías de Seguridad e Higiene
                                 </label>
@@ -247,7 +293,9 @@
                             <label for="cotizarMensaje" class="form-label">Mensaje Adicional</label>
                             <textarea class="form-control" id="cotizarMensaje" name="cotizarMensaje" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar solicitud de cotización</button>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Enviar solicitud de cotización</button>
+                        </div>
                     </form>
                 </div>
             </div>

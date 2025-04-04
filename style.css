@@ -12,8 +12,7 @@ body {
 nav {
     background-color: #e9ecef; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Add a contrasting border */
-    border-bottom: 3px solid #409EFF; /* Use the same blue as the primary color */
+    border-bottom: 3px solid #409EFF;
 }
 
 nav .navbar-brand {
@@ -22,7 +21,7 @@ nav .navbar-brand {
 }
 
 nav .navbar-brand img {
-    height: 50px;
+    height: 800px;
     vertical-align: middle;
     margin-right: 5px;
 }
@@ -35,58 +34,82 @@ nav .nav-link {
 nav .nav-link:hover {
     color: #fff; 
 }
-
 /* Header Styles */
-header {
-    color: #fff;
-    padding: 8rem 0 13rem;
+header#intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
     text-align: center;
-    background: url('/directly-table-with-work-tools.jpg');
-    background-size: cover;
-    background-position: center;
-    text-shadow: 2px 2px 4px #000000;
-    padding-bottom: 100px;
-    background-color: #343a40; 
+    color: #fff;
+    padding: 20vh 1rem;
+    padding-bottom: 10vh;
 }
 
-header h1 {
+#bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: blur(2px) brightness(1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.7);
+    z-index: -1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+header#intro h1 {
     margin: 0;
     text-shadow: 2px 2px 4px #000, 0 0 25px #000, 0 0 5px #000;
     font-size: 3.5em;
 }
 
-header p {
+header#intro p {
     text-shadow: 1px 1px 2px #000, 0 0 10px #000, 0 0 5px #000;
     font-size: 1.8em;
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 4rem 0 8rem;
+    header#intro {
+        padding: 10vh 2rem;
     }
 
-    header h1 {
+    header#intro h1 {
         font-size: 2.5em;
     }
 
-    header p {
+    header#intro p {
         font-size: 1.3em;
     }
 }
 
 /* Intro Section Styles */
 #intro {
-    background-color: #F2F6FC; 
     padding: 4rem 2rem;
     text-align: center;
     margin-bottom: 2rem;
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box; /* Include padding in element's total width */
+    box-sizing: border-box;
 }
 
 #intro h2 {
-    color: #0056b3; 
+    color: #0056b3;
     font-size: 2.5em;
     margin-bottom: 1rem;
 }
@@ -419,19 +442,19 @@ header p {
 
 .logo-item img {
     width: 100%;
-    height: auto;
-    transition: filter 0.3s ease, transform 0.3s ease;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    transform: scale(1); /* Scale down the image */
 }
 
-.logo-item:hover img {
-    filter: none;
-    transform: scale(1.1);
+.logo-item.logo-escalable img {
+    transform: scale(0.74);
 }
 
-.logo-item img:not(:hover) {
-    filter: grayscale(100%);
-    transform: scale(1);
-}
 
 .carousel-indicators [data-bs-target] {
     background-color: #409EFF; 
@@ -607,7 +630,7 @@ header p {
 }
 
 .whatsapp-button img {
-    height: 16px;
+    height: 30px;
     width: auto;
     vertical-align: middle;
     margin-right: 0.3rem;
@@ -620,29 +643,125 @@ header p {
     z-index: 1000;
 }
 
+/* Footer Styles */
 footer {
-    background-color: #343a40; 
+    background-color: #343a40;
     color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-sizing: border-box; /* Include padding in element's total width */
+    padding: 2rem 2rem 1rem; /* Reduje el padding superior e inferior */
+    text-align: center; /* Centra el copyright */
+    position: relative; /* Para posicionar el botón de WhatsApp */
 }
 
-.social-icons {
-    margin-bottom: 1rem;
+.footer-container {
+    max-width: auto;
+    margin: 0 auto;
+    background-color: #343a40;
 }
 
-.social-icons a {
+/* Navegación del Footer */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #343a40;
+}
+
+.footer-nav a {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #adb5bd;
+    background-color: #343a40;
+}
+
+/* Redes Sociales */
+.social-links {
+    margin-top: 1.5rem;
+    text-align: right;
+    background-color: #343a40;
+}
+
+.social-links a {
     display: inline-block;
-    margin: 0 0.5rem;
+    margin-left: 1rem;
 }
 
-.social-icons img {
-    height: 30px;
-    width: auto;
+.social-links img {
+    width: 24px; /* Reduje el tamaño de los iconos sociales */
+    height: 24px;
+    vertical-align: middle;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    opacity: 1;
+}
+
+/* Línea Divisoria */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: #6c757d;
+    margin: 1.5rem 0; /* Reduje un poco el margen */
+}
+
+/* Parte Inferior del Footer (Modificado) */
+.footer-bottom {
+    display: flex;
+    flex-direction: column; /* Volvemos a apilar para centrar el copyright */
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.footer-logo {
+    text-align: center; /* Alineamos el logo a la izquierda */
+}
+
+.footer-logo img {
+    max-height: 300px; /* Reduje el tamaño del logo */
+}
+
+.footer-copyright {
+    font-size: 1rem; 
+    color: #adb5bd;
+    margin-bottom: 0;
+}
+
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .footer-nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .social-links {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+
+    .footer-logo {
+        text-align: center; 
+    }
 }
 
 /* Scroll-to-top button */

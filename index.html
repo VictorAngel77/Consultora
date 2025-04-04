@@ -1,5 +1,4 @@
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,29 +23,10 @@
 </head>
 
 <body>
-    <div class="dark-mode-toggle">
-        <input type="checkbox" class="dark-mode-checkbox" id="darkModeToggle">
-        <label class="dark-mode-label" for="darkModeToggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun sun">
-                <circle cx="12" cy="12" r="5" />
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon moon">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </label>
-    </div>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(51, 51, 51, 0.5); backdrop-filter: blur(5px);">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="/image-removebg-preview.png" alt="Bienestar Consultora Logo" style="height: 50px; vertical-align: middle; margin-right: 5px;">
+                <img src="/recursos/logos/logo-bienestar.png" alt="Bienestar Consultora Logo" style="height: 50px; vertical-align: middle; margin-right: 5px;">
                 Bienestar Consultora
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,6 +44,9 @@
                         <a class="nav-link" href="#por-que-elegirnos">¿Por qué elegirnos?</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#iffies">Clientes</a>
                     </li>
                     <li class="nav-item">
@@ -77,15 +60,17 @@
         </div>
     </nav>
 
-    <header style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff;">
-        <img src="/directly-table-with-work-tools.jpg" alt="Background Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(5px) brightness(0.7);">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(51, 51, 51, 0.7); backdrop-filter: blur(5px); z-index: -1;"></div>
-        <div style="position: relative; z-index: 1;">
-            <h1 style="font-size: 3.5em; font-weight: bold; text-shadow: 2px 2px 4px #000000;">Bienestar Consultora</h1>
-            <p style="font-size: 1.8em; text-shadow: 1px 1px 2px #000000;">Expertos en Higiene, Seguridad y Salud Laboral</p>
-            <p style="font-size: 1.3em; text-shadow: 1px 1px 2px #000000;">Protegemos tu empresa. Cuidamos a tu equipo.</p>
+    <header id="intro">
+        <img id="bg-image" src="recursos/principal.png" alt="Background Image">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1>Bienestar Consultora</h1>
+            <p>Expertos en Higiene, Seguridad y Salud Laboral</p>
+            <p>Protegemos tu empresa. Cuidamos a tu equipo.</p>
         </div>
-        <div id="intro" style="position: relative; z-index: 1; padding: 4rem 2rem; margin-bottom: 0;">
+    </header>
+    <section >
+        <div id="intro">
             <h2>La seguridad laboral no es una opción, es una necesidad.</h2>
             <p>En Bienestar Consultora, garantizamos que tu empresa cumpla con la normativa y sea un espacio seguro para todos. Con más de 10 años de experiencia, ofrecemos soluciones innovadoras y personalizadas que reducen los riesgos y mejoran la productividad de tu equipo.</p>
             <div class="cta-container">
@@ -93,38 +78,38 @@
                 <a href="#contacto" class="cta-button">Contáctanos</a>
             </div>
         </div>
-    </header>
+    </section>
 
     <section id="por-que-elegirnos">
         <h2>¿Por qué elegirnos?</h2>
         <div class="card-container">
             <div class="card">
-                <img src="/cumplimiento.svg" alt="Cumplimiento" class="card-image" style="width: 80px; height: 80px;">
+                <img src="/recursos/cumplimiento.svg" alt="Cumplimiento" class="card-image" style="width: 80px; height: 80px;">
                 <h3>Cumplimiento sin complicaciones</h3>
                 <p>Nos aseguramos de que tu empresa cumpla con la Ley 19.587/72, evitando sanciones y garantizando tranquilidad.</p>
             </div>
             <div class="card">
-                <img src="/productividad.svg" alt="Riesgos" class="card-image" style="width: 80px; height: 80px;">
+                <img src="/recursos/productividad.svg" alt="Riesgos" class="card-image" style="width: 80px; height: 80px;">
                 <h3>Menos riesgos, más productividad</h3>
                 <p>Reducimos accidentes y enfermedades laborales, mejorando el rendimiento y bienestar de tu equipo.</p>
             </div>
             <div class="card">
-                <img src="/planes.svg" alt="Estrategias" class="card-image" style="width: 80px; height: 80px;">
+                <img src="/recursos/planes.svg" alt="Estrategias" class="card-image" style="width: 80px; height: 80px;">
                 <h3>Estrategias personalizadas</h3>
                 <p>Cada empresa es única. Diseñamos planes a medida para garantizar entornos de trabajo seguros y eficientes.</p>
             </div>
             <div class="card">
-                <img src="/Acompañamiento.svg" alt="Acompañamiento" class="card-image" style="width: 80px; height: 80px;">
+                <img src="/recursos/Acompañamiento.svg" alt="Acompañamiento" class="card-image" style="width: 80px; height: 80px;">
                 <h3>Acompañamiento experto</h3>
                 <p>Un equipo de profesionales certificados, listos para asesorarte en cada paso del proceso.</p>
             </div>
             <div class="card">
-                <img src="/prevencion.svg" alt="Acompañamiento" class="card-image" style="width: 80px; height: 80px;">
+                <img src="/recursos/prevencion.svg" alt="Acompañamiento" class="card-image" style="width: 80px; height: 80px;">
                 <h3>Prevención proactiva de riesgos</h3>
                 <p>Identificamos y abordamos posibles peligros antes de que se conviertan en problemas, minimizando accidentes y garantizando un entorno laboral más seguro.</p>
             </div>
             <div class="card">
-                <img src="/Respuesta.svg" alt="Acompañamiento" class="card-image" style="width: 80px; height: 80px;">
+                <img src="/recursos/Respuesta.svg" alt="Acompañamiento" class="card-image" style="width: 80px; height: 80px;">
                 <h3>Respuesta rápida y atención personalizada</h3>
                 <p>Brindamos un servicio ágil y cercano, con asesoramiento inmediato para resolver cualquier inquietud o emergencia en tu empresa.</p>
             </div>
@@ -136,7 +121,7 @@
         <div class="service-container">
             <div class="service-card">
                 <div class="front">
-                    <img src="/ley.png" alt="Habilitaciones y Certificaciones" class="service-icon">
+                    <img src="/recursos/ley.png" alt="Habilitaciones y Certificaciones" class="service-icon">
                     <h3>Habilitaciones y Certificaciones</h3>
                 </div>
                 <div class="back">
@@ -151,7 +136,8 @@
 
             <div class="service-card">
                 <div class="front">
-                    <img src="/EPP.jpg" alt="Asesoramiento y Supervisión Externa" class="service-icon">
+                    <img src="/recursos/EPP.jpg" alt="Asesoramiento y Supervisión Externa" class="service-icon">
+                    <h3>Asesoramiento y supervisión externa</h3>
                 </div>
                 <div class="back">
                     <p>Supervisión experta para garantizar seguridad en cada detalle.</p>
@@ -165,7 +151,7 @@
 
             <div class="service-card">
                 <div class="front">
-                    <img src="/ergonimia.png" alt="Estudios de Ergonomía y Condiciones Laborales" class="service-icon">
+                    <img src="/recursos/ergonimia.png" alt="Estudios de Ergonomía y Condiciones Laborales" class="service-icon">
                     <h3>Estudios de Ergonomía y Condiciones Laborales</h3>
                 </div>
                 <div class="back">
@@ -179,7 +165,7 @@
 
             <div class="service-card">
                 <div class="front">
-                    <img src="/image-removebg-preview.png" alt="Investigación de Accidentes y Prevención" class="service-icon">
+                    <img src="/recursos/investigacion.png" alt="Investigación de Accidentes y Prevención" class="service-icon">
                     <h3>Investigación de Accidentes y Prevención</h3>
                 </div>
                 <div class="back">
@@ -194,7 +180,7 @@
 
             <div class="service-card">
                 <div class="front">
-                    <img src="/investigacion.png" alt="Plan Estratégico de Seguridad" class="service-icon">
+                    <img src="/recursos/estrategico.png" alt="Plan Estratégico de Seguridad" class="service-icon">
                     <h3>Plan Estratégico de Seguridad</h3>
                 </div>
                 <div class="back">
@@ -207,7 +193,7 @@
 
             <div class="service-card">
                 <div class="front">
-                    <img src="/estrategico.png" alt="Capacitaciones Personalizadas" class="service-icon">
+                    <img src="/recursos/capacitaciones.png" alt="Capacitaciones Personalizadas" class="service-icon">
                     <h3>Capacitaciones Personalizadas</h3>
                 </div>
                 <div class="back">
@@ -235,72 +221,84 @@
                 <button type="button" data-bs-target="#logoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#logoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <button type="button" data-bs-target="#logoCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#logoCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="logo-row">
                         <div class="logo-item">
-                            <img src="arcor-logo.svg" alt="Arcor Logo">
+                            <img src="recursos/logos/arcor.png" alt="Arcor Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="ypf-logo.svg" alt="YPF Logo">
+                            <img src="recursos/logos/ypf.png" alt="YPF Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="barrick-logo.svg" alt="Barrick Logo">
+                            <img src="recursos/logos/Logo-Barrick.jpg" alt="Barrick Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="calidra-logo.svg" alt="Calidra Logo">
+                            <img src="recursos/logos/Calidra.png" alt="Calidra Logo">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="logo-row">
                         <div class="logo-item">
-                            <img src="logo1.png" alt="Logo 1">
+                            <img src="recursos/logos/ceras.png" alt="Ceras Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo2.png" alt="Logo 2">
+                            <img src="recursos/logos/CIICAP.jpeg" alt="CIICAP Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo3.png" alt="Logo 3">
+                            <img src="recursos/logos/daes.webp" alt="Daes Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo4.png" alt="Logo 4">
+                            <img src="recursos/logos/dibacco.gif" alt="Dibacco Logo">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="logo-row">
                         <div class="logo-item">
-                            <img src="logo6.png" alt="Logo 6">
+                            <img src="recursos/logos/epse.jpeg" alt="EPSE Logo">
+                        </div>
+                        <div class="logo-item logo-escalable">
+                            <img src="recursos/logos/joseMaria.jpeg" alt="Jose Maria Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo7.png" alt="Logo 7">
+                            <img src="recursos/logos/logo-indumon.svg" alt="Indumon Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo8.png" alt="Logo 8">
-                        </div>
-                        <div class="logo-item">
-                            <img src="logo9.png" alt="Logo 9">
+                            <img src="recursos/logos/logo-malvar.png" alt="Malvar Logo">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="logo-row">
                         <div class="logo-item">
-                            <img src="logo11.png" alt="Logo 11">
+                            <img src="recursos/logos/maggiora.jpeg" alt="Maggiora Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo12.png" alt="Logo 12">
+                            <img src="recursos/logos/logo.png" alt="Logo">
                         </div>
                         <div class="logo-item">
-                            <img src="logo13.png" alt="Logo 13">
+                            <img src="recursos/logos/mecanizadosDiaz.png" alt="Mecanizados Diaz Logo">
                         </div>
-                        <div class="logo-item">
-                            <img src="logo14.png" alt="Logo 14">
+                        <div class="logo-item logo-escalable">
+                            <img src="recursos/logos/randstad.png" alt="Randstad Logo">
                         </div>
                     </div>
                 </div>
+                <div class="carousel-item">
+                    <div class="logo-row">
+                        <div class="logo-item logo-escalable">
+                            <img src="recursos/logos/san-juan-de-los-olivos.jpg" alt="San Juan de los Olivos Logo">
+                        </div>
+                        <div class="logo-item logo-escalable">
+                            <img src="recursos/logos/vallesAndinos.jpeg" alt="Valles Andinos Logo">
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#logoCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -326,6 +324,9 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
+                <label for="Telefono">Teléfono</label>
+                <input type="tel" id="Telefono" name="Telefono">
+
                 <label for="message">Mensaje:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
 
@@ -334,23 +335,56 @@
         </section>
 
         <section id="ubicacion">
+            <br><br>
             <h2> Ubicación</h2>
             <p>Laprida 70 oeste, J5400 San Juan</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.499749432433!2d-68.53944362457326!3d-31.53694468849677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x968141a95c8dd977%3A0x29c3558c0505c05b!2sLaprida%20Laprida%2070%20Oeste%2C%20J5400%20San%20Juan%2C%20Argentina!5e0!3m2!1sen!2sus!4v1718434495939!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </section>
 
-    <a href="https://wa.me/5492645883771" class="whatsapp-button floating" id="whatsappButton">
-        <img src="whatsapp-icon.svg" alt="WhatsApp Icon"> Contáctanos por WhatsApp
+    <a href="https://wa.me/542646113923" class="whatsapp-button floating" id="whatsappButton">
+        <img src="/recursos/logos/whatsapp.png" alt="WhatsApp Icon"> Contáctanos por WhatsApp
     </a>
 
     <footer>
-        <div class="social-icons">
-            <a href="#" target="_blank"><img src="facebook-icon.svg" alt="Facebook"></a>
-            <a href="#" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
-            <a href="#" target="_blank"><img src="instagram-icon.svg" alt="Instagram"></a>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/Bienestar_consultora/" target="_blank"><img src="/recursos/logos/instagram.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/bienestar-consultora-704a502a1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="/recursos/logos/linkedin.png" alt="LinkedIn"></a>
+            </div>
+            <div class="footer-nav-wrapper">
+                <nav class="footer-nav">
+                    <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#intro">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#por-que-elegirnos">¿Por qué elegirnos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#iffies">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="recursos/logos/bienestar.png" alt="Logo Bienestar Consultora" >
+                    <p class="footer-copyright">2025 Bienestar Consultora. Todos los derechos reservados.</p>
+                </div>
+               
+            </div>
         </div>
-        <p> 2024 Bienestar Consultora. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Scroll-to-top button -->
@@ -435,7 +469,7 @@
         </div>
     </div>
 
-    <!-- Modal for Cotizar -->
+    <!-- Modal for cotizar -->
     <div class="modal fade" id="cotizarModal" tabindex="-1" aria-labelledby="cotizarModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -448,55 +482,55 @@
                         <div class="mb-3">
                             <h3>Servicios de Interés</h3>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio1">
+                                <input class="form-check-input" type="checkbox" name="servicio1" value="on" id="servicio1">
                                 <label class="form-check-label" for="servicio1">
                                     Habilitaciones y Certificaciones
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio2">
+                                <input class="form-check-input" type="checkbox" name="servicio2" value="on" id="servicio2">
                                 <label class="form-check-label" for="servicio2">
                                     Asesoramiento y Supervisión Externa
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio3">
+                                <input class="form-check-input" type="checkbox" name="servicio3" value="on" id="servicio3">
                                 <label class="form-check-label" for="servicio3">
                                     Estudios de Ergonomía y Condiciones Laborales
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio4">
+                                <input class="form-check-input" type="checkbox" name="servicio4" value="on" id="servicio4">
                                 <label class="form-check-label" for="servicio4">
                                     Investigación de Accidentes y Prevención
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio5">
+                                <input class="form-check-input" type="checkbox" name="servicio5" value="on" id="servicio5">
                                 <label class="form-check-label" for="servicio5">
                                     Plan Estratégico de Seguridad
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio6">
+                                <input class="form-check-input" type="checkbox" name="servicio6" value="on" id="servicio6">
                                 <label class="form-check-label" for="servicio6">
                                     Capacitaciones Personalizadas
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio7">
+                                <input class="form-check-input" type="checkbox" name="servicio7" value="on" id="servicio7">
                                 <label class="form-check-label" for="servicio7">
                                     Gestión Ambiental
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio8">
+                                <input class="form-check-input" type="checkbox" name="servicio8" value="on" id="servicio8">
                                 <label class="form-check-label" for="servicio8">
                                     Consultoría en Recursos Humanos
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servicio9">
+                                <input class="form-check-input" type="checkbox" name="servicio9" value="on" id="servicio9">
                                 <label class="form-check-label" for="servicio9">
                                     Auditorías de Seguridad e Higiene
                                 </label>
@@ -522,7 +556,9 @@
                             <label for="cotizarMensaje" class="form-label">Mensaje Adicional</label>
                             <textarea class="form-control" id="cotizarMensaje" name="cotizarMensaje" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar solicitud de cotización</button>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Enviar solicitud de cotización</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -531,13 +567,6 @@
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Initialize carousel with autoplay
-        const logoCarousel = new bootstrap.Carousel(document.getElementById('logoCarousel'), {
-            interval: 5000, // Change every 5 seconds
-            wrap: true // Cycle continuously
-        });
-    </script>
 </body>
 
 </html>

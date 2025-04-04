@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 50, // Adjust for navbar height
+                    top: targetElement.offsetTop - 50,
                     behavior: 'smooth'
                 });
             }
@@ -37,12 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
+    
             const formData = new FormData(contactForm);
-            const formDataObject = Object.fromEntries(formData.entries());
-
+            const formDataObject = {}; // Inicializamos un objeto vacío
+    
+            // Construir el objeto con el formato deseado
+            formDataObject['Nombre'] = formData.get('name');
+            formDataObject['Email'] = formData.get('email');
+            formDataObject['Telefono'] = formData.get('Telefono');
+            formDataObject['Mensaje'] = formData.get('message');
+    
             try {
-                const response = await fetch('https://formspree.io/f/xyyqznyq', {
+                const response = await fetch('https://formspree.io/f/mnnpglob', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -50,11 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify(formDataObject)
                 });
-
+    
                 if (response.ok) {
-                    // Show success modal
                     showSuccessModal('¡Mensaje enviado con éxito!');
-                    contactForm.reset(); // Clear the form
+                    contactForm.reset();
                 } else {
                     const errorData = await response.json();
                     console.error('Form submission error:', errorData);
@@ -69,56 +74,61 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Contact form not found');
     }
 
-    // Cotizar form submission
-    const cotizarForm = document.getElementById('cotizar-form');
+ // Cotizar form submission
+const cotizarForm = document.getElementById('cotizar-form');
 
-    if (cotizarForm) {
-        cotizarForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
+if (cotizarForm) {
+    cotizarForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-            const formData = new FormData(cotizarForm);
-            const formDataObject = Object.fromEntries(formData.entries());
+        const formData = new FormData(cotizarForm);
+        const formDataObject = {}; // Inicializamos un objeto vacío
 
-            // Extract checked services
-            const serviciosDeInteres = [];
-            formData.forEach((value, key) => {
-                if (key.startsWith('servicio') && value === 'on') {
-                    serviciosDeInteres.push(document.querySelector(`label[for='${key}']`).textContent.trim());
-                }
-            });
-            formDataObject.serviciosDeInteres = serviciosDeInteres.join(', ');
-
-
-            try {
-                const response = await fetch('https://formspree.io/f/maygwrdw', { 
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(formDataObject)
-                });
-
-                if (response.ok) {
-                    // Show success modal
-                    showSuccessModal('¡Solicitud de cotización enviada con éxito!');
-                    cotizarForm.reset(); // Clear the form
-                    const cotizarModal = bootstrap.Modal.getInstance(document.getElementById('cotizarModal'));
-                    cotizarModal.hide();
-
-                } else {
-                    const errorData = await response.json();
-                    console.error('Form submission error:', errorData);
-                    alert('Hubo un error al enviar la solicitud de cotización. Por favor, inténtalo de nuevo.');
-                }
-            } catch (error) {
-                console.error('Network error:', error);
-                alert('Ocurrió un error de red al enviar la solicitud de cotización. Por favor, verifica tu conexión e inténtalo de nuevo.');
+        // Recopilar servicios de interés formateados
+        const serviciosDeInteres = [];
+        formData.forEach((value, key) => {
+            if (key.startsWith('servicio') && value === 'on') {
+                serviciosDeInteres.push(document.querySelector(`label[for='${key}']`).textContent.trim());
             }
         });
-    } else {
-        console.log('Cotizar form not found');
-    }
+
+        // Construir el objeto con el formato deseado
+        formDataObject['Servicios De Interes'] = serviciosDeInteres.join('\n');
+
+        formDataObject['Nombre'] = formData.get('cotizarNombre');
+        formDataObject['Correo'] = formData.get('cotizarEmail');
+        formDataObject['Telefono'] = formData.get('cotizarTelefono');
+        formDataObject['Empresa'] = formData.get('cotizarEmpresa');
+        formDataObject['Mensaje Adicional'] = formData.get('cotizarMensaje');
+
+        try {
+            const response = await fetch('https://formspree.io/f/xzzejykl', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formDataObject)
+            });
+
+            if (response.ok) {
+                showSuccessModal('¡Solicitud de cotización enviada con éxito!');
+                cotizarForm.reset();
+                const cotizarModal = bootstrap.Modal.getInstance(document.getElementById('cotizarModal'));
+                cotizarModal.hide();
+            } else {
+                const errorData = await response.json();
+                console.error('Form submission error:', errorData);
+                alert('Hubo un error al enviar la solicitud de cotización. Por favor, inténtalo de nuevo.');
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            alert('Ocurrió un error de red al enviar la solicitud de cotización. Por favor, verifica tu conexión e inténtalo de nuevo.');
+        }
+    });
+} else {
+    console.log('Cotizar form not found');
+}
 
 
     // Function to show the success modal
@@ -134,13 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
     whatsappButton.addEventListener('click', (event) => {
         event.preventDefault(); // Prevent navigation
 
-        // Show success modal before redirecting
         showSuccessModal('Redirigiendo a WhatsApp...');
 
-        // Redirect after a short delay to allow modal to show
         setTimeout(() => {
-            window.location.href = whatsappButton.href; // Redirect to WhatsApp
-        }, 1500); // Adjust delay as needed
+            window.location.href = whatsappButton.href;
+        }, 1500);
     });
 
     // Intersection Observer for "Por qué elegirnos" section animation
@@ -148,12 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Trigger icon animations here after section animation
                 animateCards();
             }
         });
     }, {
-        threshold: 0.5 // Trigger when 50% of the section is visible
+        threshold: 0.5 
     });
 
     observer.observe(porQueElegirnosSection);
@@ -162,16 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function animateCards() {
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
-            card.classList.add('animated'); // Add class to trigger CSS animation
+            card.classList.add('animated');
             const svg = card.querySelector('svg');
             if (svg) {
-                // Trigger animation for each SVG icon
-                //triggerSvgAnimation(svg);
+                triggerSvgAnimation(svg);
 
-                // Reset animation on mouse hover
-                /*card.addEventListener('mouseover', () => {
+                card.addEventListener('mouseover', () => {
                     triggerSvgAnimation(svg);
-                });*/
+                });
             }
         });
     }
@@ -204,32 +209,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observerIffies.observe(iffiesSection);
 
+    // Inicialización del carrusel de logos
     let logoCarousel;
-
-    // Function to initialize carousel if it is not already initialized
-    function initializeCarousel() {
-        if (!logoCarousel) {
-            logoCarousel = new bootstrap.Carousel(document.getElementById('logoCarousel'), {
-                interval: 5000, // Change every 5 seconds
-                wrap: true // Cycle continuously
-            });
-        }
+    const logoCarouselElement = document.getElementById('logoCarousel');
+    if (logoCarouselElement) {
+        logoCarousel = new bootstrap.Carousel(logoCarouselElement, {
+            interval: 5000, // Cambia cada 5 segundos
+            wrap: true // Ciclo continuo
+        });
     }
 
-    // Intersection Observer for "Ellos confían en nosotros" section animation
-    const observerIffiesCarousel = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Initialize carousel when the section is in view
-                initializeCarousel();
-                observerIffiesCarousel.unobserve(iffiesSection); // Animate only once
-            }
-        });
-    }, {
-        threshold: 0.2 // Trigger when 20% of the section is visible
-    });
-
-    observerIffiesCarousel.observe(iffiesSection);
+    // Elimina el IntersectionObserver que intentaba inicializar el carrusel
+    // const observerIffiesCarousel = new IntersectionObserver((entries) => { ... });
+    // observerIffiesCarousel.observe(iffiesSection);
 
     // Scroll-to-top button functionality
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
