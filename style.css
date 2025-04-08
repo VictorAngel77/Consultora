@@ -86,7 +86,7 @@ header#intro p {
 
 @media (max-width: 768px) {
     header#intro {
-        padding: 10vh 2rem;
+        padding: 25vh 2rem;
     }
 
     header#intro h1 {
@@ -362,7 +362,7 @@ header#intro p {
     margin-bottom: 2rem;
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box; /* Include padding in element's total width */
+    box-sizing: border-box; 
 }
 
 /* Iffies Section Styles */
@@ -373,7 +373,7 @@ header#intro p {
     margin-bottom: 2rem;
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box; /* Include padding in element's total width */
+    box-sizing: border-box; 
 }
 
 #iffies h2 {
@@ -408,35 +408,40 @@ header#intro p {
 
 .logo-row {
     display: flex;
-    justify-content: space-around; /* Distribute logos evenly */
+    justify-content: space-around; 
     align-items: center;
     flex-wrap: wrap; 
-    gap: 20px; /* Adjust gap between logos */
+    gap: 20px; 
     padding: 20px;
 }
 
 .logo-item {
-    width: auto; /* Adjust width to auto to fit content */
-    max-width: 180px; /* Limit max width if needed */
-    height: auto; /* Adjust height to auto to maintain aspect ratio */
+    width: auto; 
+    max-width: 180px; 
+    height: auto; 
     max-height: 120px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
-    flex-basis: calc(25% - 20px); /* Example: 4 logos per row minus gap */
+    flex-basis: calc(25% - 20px); 
     box-sizing: border-box;
-    min-width: 0; /* Ensure item can shrink below content size */
+    min-width: 0; 
 }
 
 @media (max-width: 768px) {
     .logo-item {
-        flex-basis: calc(50% - 20px); /* Two logos per row on smaller screens */
-        max-width: 100%; /* Ensure logos don't overflow container on small screens */
+        flex-basis: calc(50% - 20px); 
+        transform: scale(0.74);
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
     }
+    
     .logo-row {
-        justify-content: center; /* Center logos on smaller screens */
+        justify-content: center; 
     }
 }
 
@@ -448,7 +453,7 @@ header#intro p {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    transform: scale(1); /* Scale down the image */
+    transform: scale(1); 
 }
 
 .logo-item.logo-escalable img {
