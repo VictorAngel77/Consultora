@@ -5,7 +5,7 @@ body {
     background-color: #f8f9fa; 
     color: #343a40; 
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll on the body */
+    overflow-x: hidden; 
 }
 
 /* Navigation Styles */
@@ -34,6 +34,20 @@ nav .nav-link {
 nav .nav-link:hover {
     color: #fff; 
 }
+
+@media (max-width: 768px) {
+    nav.navbar > .container,
+    nav.navbar > .container-fluid,
+    nav.navbar > .container-sm,
+    nav.navbar > .container-md,
+    nav.navbar > .container-lg,
+    nav.navbar > .container-xl,
+    nav.navbar > .container-xxl {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 /* Header Styles */
 header#intro {
     position: relative;
@@ -146,7 +160,7 @@ header#intro p {
     margin-bottom: 2rem;
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box; /* Include padding in element's total width */
+    box-sizing: border-box; 
 }
 
 #por-que-elegirnos h2 {
@@ -403,7 +417,7 @@ header#intro p {
 }
 
 .carousel-item {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 }
 
 .logo-row {
@@ -413,6 +427,8 @@ header#intro p {
     flex-wrap: wrap; 
     gap: 20px; 
     padding: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .logo-item {
@@ -439,7 +455,7 @@ header#intro p {
         max-width: 100%;
         max-height: 100%;
     }
-    
+
     .logo-row {
         justify-content: center; 
     }
@@ -450,16 +466,35 @@ header#intro p {
     height: 100%;
     max-width: 100%;
     max-height: 100%;
-    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
     transform: scale(1); 
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .logo-item.logo-escalable img {
     transform: scale(0.74);
 }
 
+#logoCarousel {
+    position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
 
 .carousel-indicators [data-bs-target] {
     background-color: #409EFF; 
@@ -481,7 +516,7 @@ header#intro p {
     width: auto;
     padding: 0;
     opacity: 1; 
-    transition: opacity 0.3s ease;
+    transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
     position: absolute; 
 }
 
@@ -506,6 +541,37 @@ header#intro p {
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
     opacity: 1; 
+}
+
+/* Asegurar que los indicadores del carrusel sean visibles y estén correctamente posicionados */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10; /* Asegurar que estén por encima del contenido */
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #409EFF; /* Color celeste */
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #fff; /* Borde blanco para mayor visibilidad */
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-indicators [data-bs-target]:hover {
+    opacity: 1;
+}
+
+.carousel-indicators .active {
+    background-color: #0056b3; /* Color más oscuro para el indicador activo */
+    opacity: 1;
 }
 
 /* Ubicacion y Contacto Section Styles */
@@ -631,6 +697,9 @@ header#intro p {
     .whatsapp-button {
         padding: 0.4rem 0.8rem;
         font-size: 0.8em;
+    }
+    .whatsapp-button.floating {
+        right: 10px !important;
     }
 }
 
@@ -771,29 +840,32 @@ footer {
 
 /* Scroll-to-top button */
 #scrollToTopBtn {
-    display: none;
     position: fixed;
     bottom: 20px;
-    left: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
+    left: 20px; /* Siempre en la parte izquierda */
+    background-color: #6c757d; /* Gama de gris que resalta */
     border: none;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     cursor: pointer;
     z-index: 1000;
-    transition: opacity 0.3s;
+    transition: background-color 0.3s;
 }
 
 #scrollToTopBtn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
 }
 
 #scrollToTopBtn img {
-    width: 60%;
+    width: 25px; /* Ajustar el ancho del icono */
     height: auto;
-    margin: auto;
+    margin: 0 auto; /* Centrar horizontalmente */
     display: block;
+    position: absolute;
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajustar para centrar completamente */
 }
 
 /* Responsive adjustments for the scroll-to-top button */
@@ -804,122 +876,6 @@ footer {
         bottom: 10px;
         left: 10px;
     }
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f8f9fa;
-}
-
-body.dark-mode nav {
-    background-color: rgba(30, 30, 30, 0.5);
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode nav .navbar-brand {
-    color: #fff;
-}
-
-body.dark-mode nav .nav-link {
-    color: #ccc;
-}
-
-body.dark-mode #intro {
-    background-color: #2a2a2a;
-}
-
-body.dark-mode #intro h2 {
-    color: #fff;
-}
-
-body.dark-mode #por-que-elegirnos,
-body.dark-mode #servicios,
-body.dark-mode #iffies {
-    background-color: #2a2a2a;
-}
-
-body.dark-mode .card {
-    background-color: #333;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .card h3,
-body.dark-mode #servicios .service-card h3 {
-    color: #fff;
-}
-
-body.dark-mode .service-card {
-    background-color: #444 !important;
-}
-
-body.dark-mode #contacto {
-    background-color: #333;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode #contact-form input,
-body.dark-mode #contact-form textarea {
-    border: 1px solid #555;
-    background-color: #444;
-    color: #fff;
-}
-
-body.dark-mode footer {
-    background-color: #1a1a1a;
-}
-
-/* Dark Mode Toggle Styles */
-.dark-mode-toggle {
-    position: relative;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    margin-left: auto; 
-    margin-right: 15px; 
-}
-
-.dark-mode-checkbox {
-    display: none;
-}
-
-.dark-mode-label {
-    background-color: #333;
-    border-radius: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    position: relative;
-    height: 26px;
-    width: 50px;
-    transform: scale(1.2);
-}
-
-.dark-mode-label .sun,
-.dark-mode-label .moon {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    color: #f8f9fa;
-    transition: transform 0.3s ease;
-}
-
-.dark-mode-label .sun {
-    transform: translateX(0);
-}
-
-.dark-mode-label .moon {
-    transform: translateX(20px);
-}
-
-.dark-mode-checkbox:checked + .dark-mode-label .sun {
-    transform: translateX(20px);
-}
-
-.dark-mode-checkbox:checked + .dark-mode-label .moon {
-    transform: translateX(0);
 }
 
 /* Modal styling */
