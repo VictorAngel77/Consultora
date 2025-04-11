@@ -51,21 +51,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Detectar si hay un hash en la URL y desplazarse después de cargar todas las secciones dinámicas
+// Ajustar el desplazamiento al navegar a un ancla con un margen adicional significativo
+const adjustScrollOffset = (hash) => {
+    const targetElement = document.querySelector(hash);
+    if (targetElement) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const additionalOffset = 50; // Incremento del margen adicional
+        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight - additionalOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+        });
+    }
+};
+
+// Modificar el evento de hash para usar el ajuste
 window.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash;
     if (hash) {
         const scrollToSection = () => {
-            const targetElement = document.querySelector(hash);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // Si el elemento aún no está disponible, esperar y volver a intentar
-                setTimeout(scrollToSection, 100);
-            }
+            adjustScrollOffset(hash);
         };
 
-        // Esperar a que todas las secciones dinámicas estén cargadas
         const observer = new MutationObserver(() => {
             const allSectionsLoaded = document.querySelectorAll('[id$="-container"]:not(:empty)').length === Object.keys(secciones).length;
             if (allSectionsLoaded) {
@@ -87,4 +96,40 @@ window.addEventListener('DOMContentLoaded', () => {
             ride: 'carousel' 
         });
     }
+});
+
+// Deshabilitar los botones prev y next del carrusel en pantallas pequeñas
+const disableCarouselControlsOnSmallScreens = () => {
+    const prevButton = document.querySelector('.carousel-control-prev');
+    const nextButton = document.querySelector('.carousel-control-next');
+
+    const updateControlsState = () => {
+        if (window.innerWidth <= 768) {
+            if (prevButton) {
+                prevButton.style.pointerEvents = 'none';
+                prevButton.style.opacity = '0.5';
+            }
+            if (nextButton) {
+                nextButton.style.pointerEvents = 'none';
+                nextButton.style.opacity = '0.5';
+            }
+        } else {
+            if (prevButton) {
+                prevButton.style.pointerEvents = '';
+                prevButton.style.opacity = '';
+            }
+            if (nextButton) {
+                nextButton.style.pointerEvents = '';
+                nextButton.style.opacity = '';
+            }
+        }
+    };
+
+    // Ejecutar al cargar la página y al redimensionar la ventana
+    updateControlsState();
+    window.addEventListener('resize', updateControlsState);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    disableCarouselControlsOnSmallScreens();
 });

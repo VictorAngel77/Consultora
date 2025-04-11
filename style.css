@@ -48,8 +48,16 @@ nav .nav-link:hover {
     }
 }
 
+section {
+    scroll-margin-top: 50px;
+}
+
 /* Header Styles */
 header#intro {
+    background-image: url('recursos/principal.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -111,6 +119,7 @@ header#intro p {
         font-size: 1.3em;
     }
 }
+
 
 /* Intro Section Styles */
 #intro {
@@ -381,7 +390,7 @@ header#intro p {
 
 /* Iffies Section Styles */
 #iffies {
-    background-color: #F2F6FC;
+    background-color: #ffffff;
     padding: 4rem 2rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -404,7 +413,7 @@ header#intro p {
 .carousel {
     width: 100%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.295);
     backdrop-filter: blur(5px);
     border-radius: 10px;
     padding: 20px;
@@ -496,21 +505,6 @@ header#intro p {
     right: 10px;
 }
 
-.carousel-indicators [data-bs-target] {
-    background-color: #409EFF; 
-    border-radius: 50%; 
-    width: 12px; 
-    height: 12px; 
-    margin: 0 5px; 
-    border: none; 
-    opacity: 0.5; 
-}
-
-.carousel-indicators .active {
-    background-color: #fff; 
-    opacity: 1; 
-}
-
 .carousel-control-prev,
 .carousel-control-next {
     width: auto;
@@ -532,10 +526,8 @@ header#intro p {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.7); 
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    background-color: #007bff !important; 
+    border-radius: 50% !important; 
 }
 
 .carousel-control-prev:hover,
@@ -543,35 +535,24 @@ header#intro p {
     opacity: 1; 
 }
 
-/* Asegurar que los indicadores del carrusel sean visibles y estén correctamente posicionados */
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    z-index: 10; /* Asegurar que estén por encima del contenido */
+
+
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
+    }   
 }
 
 .carousel-indicators [data-bs-target] {
-    background-color: #409EFF; /* Color celeste */
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #fff; /* Borde blanco para mayor visibilidad */
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-}
-
-.carousel-indicators [data-bs-target]:hover {
-    opacity: 1;
-}
-
-.carousel-indicators .active {
-    background-color: #0056b3; /* Color más oscuro para el indicador activo */
-    opacity: 1;
+    background-color: #007bff !important; 
+    width: 12px !important; 
+    height: 12px !important; 
+    border-radius: 50% !important; 
+    margin: 0 4px !important; 
+  }
+  
+  .carousel-indicators .active {
 }
 
 /* Ubicacion y Contacto Section Styles */
@@ -608,6 +589,15 @@ header#intro p {
     border: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border: 2px solid #409EFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(64, 158, 255, 0.5);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
 
 @media (max-width: 768px) {
     .ubicacion-contacto-container {
@@ -1001,20 +991,6 @@ footer {
     margin: 0; 
 }
 
-/* Dark Mode adjustments for the modal */
-body.dark-mode #moreServicesModal .modal-content {
-    background-color: #333;
-    color: #fff;
-}
-
-body.dark-mode #moreServicesModal .service-card {
-    background-color: #444;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode #moreServicesModal .service-card h3 {
-    color: #fff;
-}
 
 /* Cotizar Modal Styles */
 #cotizarModal .modal-body {
@@ -1050,31 +1026,4 @@ body.dark-mode #moreServicesModal .service-card h3 {
 #cotizarModal .form-label {
     font-weight: bold;
     color: #343a40;
-}
-
-body.dark-mode #cotizarModal .modal-content {
-    background-color: #333;
-    color: #fff;
-}
-
-body.dark-mode #cotizarModal .modal-title {
-    color: #fff;
-}
-
-body.dark-mode #cotizarModal .form-label {
-    color: #eee;
-}
-
-body.dark-mode #cotizarModal .form-control {
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #555;
-}
-
-body.dark-mode #cotizarModal .form-check-label {
-    color: #eee;
-}
-
-body.dark-mode #cotizarModal .modal-header {
-    border-bottom-color: #555;
 }

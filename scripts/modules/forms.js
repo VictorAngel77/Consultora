@@ -8,9 +8,9 @@ export function setupForms() {
             event.preventDefault();
 
             const formData = new FormData(contactForm);
-            const formDataObject = {}; // Inicializamos un objeto vacío
+            const formDataObject = {}; 
 
-            // Construir el objeto con el formato deseado
+           
             formDataObject['Nombre'] = formData.get('name');
             formDataObject['Email'] = formData.get('email');
             formDataObject['Telefono'] = formData.get('Telefono');
@@ -27,7 +27,8 @@ export function setupForms() {
                 });
 
                 if (response.ok) {
-                    showSuccessModal('¡Mensaje enviado con éxito!');
+                    showSuccessModal('Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted a la brevedad. \n' +
+                        '¡Gracias por elegir Bienestar Consultora!');
                     contactForm.reset();
                 } else {
                     const errorData = await response.json();
@@ -43,7 +44,6 @@ export function setupForms() {
         console.log('Contact form not found');
     }
 
-    // Asegurar que el formulario se configure después de cargar dinámicamente el contenido
     const cotizarForm = document.getElementById('cotizar-form');
 
     if (cotizarForm) {
@@ -53,7 +53,6 @@ export function setupForms() {
             const formData = new FormData(cotizarForm);
             const formDataObject = {};
 
-            // Recopilar datos del formulario
             formData.forEach((value, key) => {
                 formDataObject[key] = value;
             });
@@ -69,7 +68,9 @@ export function setupForms() {
                 });
 
                 if (response.ok) {
-                    showSuccessModal('¡Solicitud enviada con éxito!');
+                    showSuccessModal('Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted a la brevedad. \n' +
+                    '¡Gracias por elegir Bienestar Consultora!');
+
                     cotizarForm.reset();
                 } else {
                     alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
@@ -82,7 +83,7 @@ export function setupForms() {
     } else {
         console.log('Cotizar form not found. Asegúrate de que el contenido del modal se haya cargado correctamente.');
 
-        // Reintentar configurar el formulario después de un breve retraso
+
         setTimeout(() => {
             const retryForm = document.getElementById('cotizar-form');
             if (retryForm) {
@@ -118,24 +119,28 @@ export function setupForms() {
                     }
                 });
             }
-        }, 1000); // Reintentar después de 1 segundo
+        }, 1000); 
     }
 
-    // Modificar la función showSuccessModal para asegurar que el modal se cierre correctamente
     function showSuccessModal(message) {
         const modalBody = document.getElementById('successModalBody');
         modalBody.textContent = message;
         const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-
+    
+        const cotizarModal = bootstrap.Modal.getInstance(document.getElementById('cotizarModal'));
+        if (cotizarModal) {
+            cotizarModal.hide();
+        }
+    
         successModal.show();
-
-        // Asegurar que el modal se cierre correctamente después de un tiempo
+    
         setTimeout(() => {
             successModal.hide();
             const modalBackdrop = document.querySelector('.modal-backdrop');
             if (modalBackdrop) {
                 modalBackdrop.remove();
             }
-        }, 3000); // Cerrar el modal después de 3 segundos
+        }, 4000); 
     }
+    
 }
