@@ -550,9 +550,10 @@ header#intro p {
     height: 12px !important; 
     border-radius: 50% !important; 
     margin: 0 4px !important; 
-  }
-  
-  .carousel-indicators .active {
+}
+
+.carousel-indicators .active {
+    background-color: #007bff; /* Added meaningful style */
 }
 
 /* Ubicacion y Contacto Section Styles */
