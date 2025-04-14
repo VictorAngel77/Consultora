@@ -43,8 +43,8 @@ nav .nav-link:hover {
     nav.navbar > .container-lg,
     nav.navbar > .container-xl,
     nav.navbar > .container-xxl {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
@@ -616,10 +616,12 @@ header#intro p {
         margin-bottom: 2rem;
     }
 
-    #ubicacion iframe {
-        height: 250px;
-    }
-}
+        #ubicacion iframe {
+            width: 100%; /* Ajusta el ancho al 100% del contenedor */
+            max-width: 600px; /* Mantén un ancho máximo */
+            height: auto; /* Ajusta la altura automáticamente */
+        }    }
+
 
 /* Contacto Section Styles */
 #contacto {
