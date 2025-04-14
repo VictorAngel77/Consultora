@@ -422,7 +422,8 @@ header#intro p {
 
 .carousel-inner {
     width: 100%;
-    overflow: hidden;
+    cursor: grab !important;
+
 }
 
 .carousel-item {
@@ -459,7 +460,7 @@ header#intro p {
     .logo-item {
         flex-basis: calc(50% - 20px); 
         transform: scale(0.74);
-        width: 100%;
+      width: 100%;
         height: 100%;
         max-width: 100%;
         max-height: 100%;
@@ -502,11 +503,13 @@ header#intro p {
 }
 
 .carousel-control-prev {
-    left: 10px;
+    left: 0;
+    transform: translateX(0);
 }
 
 .carousel-control-next {
-    right: 10px;
+    right: 0;
+    transform: translateX(0);
 }
 
 .carousel-control-prev,
@@ -520,8 +523,9 @@ header#intro p {
 
 .carousel-control-prev {
     left: 20%;          
-    transform: translateX(-50%); 
-}
+    transform: translateX(-50%);} 
+
+
 
 .carousel-control-next {
     right: 20%;         
@@ -531,7 +535,7 @@ header#intro p {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: #007bff !important; 
-    border-radius: 50% !important; 
+    border-radius: 60% !important; 
 }
 
 .carousel-control-prev:hover,
@@ -549,48 +553,44 @@ header#intro p {
 }
 
 .carousel-indicators [data-bs-target] {
-    background-color: #007bff !important; 
+    background-color: #007bff !important;
     width: 12px !important; 
     height: 12px !important; 
     border-radius: 50% !important; 
     margin: 0 4px !important; 
-}
+  }
 
-.carousel-indicators .active {
-    background-color: #007bff; /* Added meaningful style */
-}
 
 /* Ubicacion y Contacto Section Styles */
 .ubicacion-contacto-container {
-    flex-direction: row; /* Default to row layout */
+    flex-direction: row; 
     justify-content: space-around;
     align-items: stretch;
     padding: 4rem 2rem;
     background-color: #f8f9fa; 
     margin-bottom: 2rem;
-    display: flex; /* Ensure flexbox is enabled */
-    flex-wrap: wrap; /* Enable wrapping for responsiveness */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: none; /* Firefox */
 }
 
-#ubicacion,
-#contacto {
-    width: 48%; /* Slightly less than half to account for gap if needed */
-    margin-bottom: 0;
-    text-align: center;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+.carousel-scrollable::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
 
-#ubicacion h2,
-#contacto h2 {
-    color: #0056b3; 
-    font-size: 2em;
-    margin-bottom: 1.5rem;
+.carousel-scrollable .logo-item {
+    scroll-snap-align: center;
+    flex: 0 0 auto; /* importante para que se comporten como ítems individuales en el scroll horizontal */
 }
-
-#ubicacion iframe {
-    width: 100%;
-    max-width: 600px;
-    height: 350px;
+  
+  
+/* Ubicacion y Contacto Section Styles */
+.ubicacion-contacto-container {
+    flex-direpx;
     border: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -606,13 +606,13 @@ header#intro p {
 
 @media (max-width: 768px) {
     .ubicacion-contacto-container {
-        flex-direction: column; /* Stack sections on smaller screens */
+   flex-direction: column;
         align-items: center;
     }
 
     #ubicacion,
     #contacto {
-        width: 95%; /* Take up more width on smaller screens */
+        width: 95%;
         margin-bottom: 2rem;
     }
 
@@ -629,7 +629,7 @@ header#intro p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box; /* Include padding in element's total width */
+    box-sizing: border-box;
 }
 
 #contact-form {
@@ -643,7 +643,7 @@ header#intro p {
 #contact-form label {
     margin-top: 1rem;
     text-align: left;
-    width: 100%;
+width: 100%;
 }
 
 #contact-form input,

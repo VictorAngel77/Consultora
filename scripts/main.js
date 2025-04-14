@@ -4,7 +4,6 @@ import { setupAnimations } from './modules/animations.js';
 import { setupScrollToTop } from './modules/scroll.js';
 import { setupNavbar } from './modules/navbar.js';
 
-// Mover la definición de `secciones` al nivel superior para que sea accesible globalmente
 const secciones = {
     'navbar-container': 'components/nav.html',
     'header-container': 'components/header.html',
@@ -21,42 +20,12 @@ const secciones = {
     'modal-cotizar-container': 'components/modal-cotizar.html'
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Diccionario de secciones a cargar dinámicamente
-
-  // Cargar todas las secciones
-  let pendingSections = Object.keys(secciones).length;
-
-  for (const [id, url] of Object.entries(secciones)) {
-    loadContent(url, id, () => {
-      pendingSections--;
-      if (pendingSections === 0) {
-        // Inicializar funcionalidades después de cargar todas las secciones
-        setupAnimations();
-        setupScrollToTop();
-        setupNavbar();
-        setupForms();
-      }
-    });
-  }
-
-  // Delegación para navegación con data-cargar (opcional si usás enlaces dinámicos)
-  document.body.addEventListener('click', (event) => {
-    const link = event.target.closest('a[data-cargar]');
-    if (link) {
-      event.preventDefault();
-      const url = link.getAttribute('data-cargar');
-      loadContent(url, 'section-intro-container'); // o el contenedor principal dinámico
-    }
-  });
-});
-
-// Ajustar el desplazamiento al navegar a un ancla con un margen adicional significativo
+// Ajustar el desplazamiento al navegar a un ancla con margen adicional
 const adjustScrollOffset = (hash) => {
     const targetElement = document.querySelector(hash);
     if (targetElement) {
-        const navHeight = document.querySelector('nav').offsetHeight;
-        const additionalOffset = 50; // Incremento del margen adicional
+        const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+        const additionalOffset = 50;
         const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - navHeight - additionalOffset;
 
@@ -67,38 +36,7 @@ const adjustScrollOffset = (hash) => {
     }
 };
 
-// Modificar el evento de hash para usar el ajuste
-window.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash;
-    if (hash) {
-        const scrollToSection = () => {
-            adjustScrollOffset(hash);
-        };
-
-        const observer = new MutationObserver(() => {
-            const allSectionsLoaded = document.querySelectorAll('[id$="-container"]:not(:empty)').length === Object.keys(secciones).length;
-            if (allSectionsLoaded) {
-                observer.disconnect();
-                scrollToSection();
-            }
-        });
-
-        observer.observe(document.body, { childList: true, subtree: true });
-    }
-});
-
-// Asegurar que el carrusel se inicialice correctamente
-window.addEventListener('DOMContentLoaded', () => {
-    const carouselElement = document.querySelector('#logoCarousel');
-    if (carouselElement) {
-        const carousel = new bootstrap.Carousel(carouselElement, {
-            interval: 4000, 
-            ride: 'carousel' 
-        });
-    }
-});
-
-// Deshabilitar los botones prev y next del carrusel en pantallas pequeñas
+// Deshabilitar controles del carrusel en pantallas pequeñas
 const disableCarouselControlsOnSmallScreens = () => {
     const prevButton = document.querySelector('.carousel-control-prev');
     const nextButton = document.querySelector('.carousel-control-next');
@@ -125,11 +63,106 @@ const disableCarouselControlsOnSmallScreens = () => {
         }
     };
 
-    // Ejecutar al cargar la página y al redimensionar la ventana
     updateControlsState();
     window.addEventListener('resize', updateControlsState);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    disableCarouselControlsOnSmallScreens();
+    let pendingSections = Object.keys(secciones).length;
+
+    for (const [id, url] of Object.entries(secciones)) {
+        loadContent(url, id, () => {
+            pendingSections--;
+            if (pendingSections === 0) {
+                // Inicializar funcionalidades una vez cargadas todas las secciones
+                setupAnimations();
+                setupScrollToTop();
+                setupNavbar();
+                setupForms();
+                disableCarouselControlsOnSmallScreens();
+
+                const carouselElement = document.querySelector('#logoCarousel');
+                if (carouselElement) {
+                    new bootstrap.Carousel(carouselElement, {
+                        interval: 4000,
+                        ride: 'carousel'
+                    });
+                }
+
+                const hash = window.location.hash;
+                if (hash) {
+                    setTimeout(() => {
+                        adjustScrollOffset(hash);
+                    }, 300);
+                }
+
+                // Carrusel draggable
+                const carousel = document.querySelector('#logoCarousel .carousel-inner');
+                if (carousel) {
+                    let isDown = false;
+                    let startX, scrollLeft;
+
+                    carousel.addEventListener('mousedown', (e) => {
+                        isDown = true;
+                        startX = e.pageX;
+                        scrollLeft = carousel.scrollLeft;
+                        carousel.style.cursor = 'grabbing';
+                    });
+
+                    carousel.addEventListener('mouseleave', () => {
+                        isDown = false;
+                        carousel.style.cursor = 'grab';
+                    });
+
+                    carousel.addEventListener('mouseup', () => {
+                        isDown = false;
+                        carousel.style.cursor = 'grab';
+                    });
+
+                    carousel.addEventListener('mousemove', (e) => {
+                        if (!isDown) return;
+                        e.preventDefault();
+                        const x = e.pageX;
+                        const walk = (x - startX) * 2;
+                        carousel.scrollLeft = scrollLeft - walk;
+                    });
+
+                    // Swipe en móviles
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+
+                    carousel.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    });
+
+                    carousel.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        const threshold = 50;
+                        if (touchEndX < touchStartX - threshold) {
+                            document.querySelector('#logoCarousel .carousel-control-next')?.click();
+                        }
+                        if (touchEndX > touchStartX + threshold) {
+                            document.querySelector('#logoCarousel .carousel-control-prev')?.click();
+                        }
+                    });
+                }
+
+                // Reforzar layout reflow
+                setTimeout(() => {
+                    window.scrollBy(0, 1);
+                    window.scrollBy(0, -1);
+                }, 100);
+            }
+        });
+    }
+
+    // Delegación para navegación dinámica (si usás enlaces con data-cargar)
+    document.body.addEventListener('click', (event) => {
+        const link = event.target.closest('a[data-cargar]');
+        if (link) {
+            event.preventDefault();
+            const url = link.getAttribute('data-cargar');
+            loadContent(url, 'section-intro-container');
+        }
+    });
 });
