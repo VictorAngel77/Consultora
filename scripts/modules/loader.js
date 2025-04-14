@@ -13,29 +13,6 @@ function applyStyles(containerId) {
   });
 }
 
-// Debugging function to log loaded content
-function debugLoadedContent(containerId, html) {
-  console.log(`Content loaded into #${containerId}:`, html);
-}
-
-// Debugging function to check if styles are loaded
-function checkStylesLoaded() {
-  const linkElements = document.querySelectorAll('link[rel="stylesheet"]');
-  linkElements.forEach((link) => {
-    console.log(`Checking style: ${link.href}`);
-    fetch(link.href)
-      .then((response) => {
-        if (response.ok) {
-          console.log(`Style loaded successfully: ${link.href}`);
-        } else {
-          console.error(`Failed to load style: ${link.href}`);
-        }
-      })
-      .catch((error) => {
-        console.error(`Error loading style: ${link.href}`, error);
-      });
-  });
-}
 
 // modules/loader.js
 export async function loadContent(url, containerId, callback = null) {
@@ -45,14 +22,10 @@ export async function loadContent(url, containerId, callback = null) {
     const container = document.getElementById(containerId);
     if (container) {
       container.innerHTML = html;
-      debugLoadedContent(containerId, html); // Log the loaded content
       if (callback) callback();
 
       // Reaplicar estilos después de cargar contenido dinámico
       applyStyles(containerId);
-
-      // Verificar si los estilos están cargados
-      checkStylesLoaded();
 
       // Ejecutar setupForms si se cargan formularios dinámicamente
       if (containerId === 'modal-cotizar-container' || containerId === 'section-contacto-container') {

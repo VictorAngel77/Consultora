@@ -108,8 +108,8 @@ export function setupForms() {
                         });
 
                         if (response.ok) {
-                            showSuccessModal('¡Solicitud enviada con éxito!');
-                            retryForm.reset();
+                            showSuccessModal('Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted a la brevedad. \n' +
+                                '¡Gracias por elegir Bienestar Consultora!');                            retryForm.reset();
                         } else {
                             alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
                         }
