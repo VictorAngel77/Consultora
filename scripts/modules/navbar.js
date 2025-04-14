@@ -16,6 +16,16 @@ export function setupNavbar() {
         });
     }
 
+    const cotizarButton = document.querySelector('#cotizarButton');
+    if (cotizarButton) {
+        cotizarButton.addEventListener('click', () => {
+            const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+            if (isExpanded) {
+                navbarToggler.click(); // Simula un clic para cerrar el menú
+            }
+        });
+    }
+
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -23,7 +33,7 @@ export function setupNavbar() {
             if (targetId.startsWith('#')) {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    event.preventDefault(); // Evitar la navegación predeterminada
+                    event.preventDefault(); 
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             }

@@ -487,7 +487,11 @@ header#intro p {
 
 #logoCarousel {
     position: relative;
-}
+} 
+
+#logoCarousel .carousel-inner {
+    touch-action: pan-y;
+  }
 
 .carousel-control-prev,
 .carousel-control-next {
