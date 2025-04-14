@@ -878,15 +878,15 @@ footer {
 /* Modal styling */
 #moreServicesModal .modal-body {
     padding: 20px;
-}
-
-#moreServicesModal .service-container {
+  }
+  
+  #moreServicesModal .service-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
-}
-
-#moreServicesModal .service-card {
+  }
+  
+  #moreServicesModal .service-card {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -896,22 +896,22 @@ footer {
     overflow: hidden;
     height: 280px;
     transition: transform 0.3s ease;
-}
-
-#moreServicesModal .service-card:hover {
+  }
+  
+  #moreServicesModal .service-card:hover {
     transform: translateY(-5px);
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     #moreServicesModal .service-card {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-        height: auto;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      height: auto;
     }
-}
-
-#moreServicesModal .service-card .front {
+  }
+  
+  #moreServicesModal .service-card .front {
     position: relative;
     top: 0;
     left: 0;
@@ -926,9 +926,9 @@ footer {
     opacity: 1;
     padding: 1rem;
     box-sizing: border-box;
-}
-
-#moreServicesModal .service-card .back {
+  }
+  
+  #moreServicesModal .service-card .back {
     position: absolute;
     top: 0;
     left: 0;
@@ -941,45 +941,45 @@ footer {
     transition: opacity 0.5s ease, transform 0.5s ease;
     font-size: 0.9em;
     box-sizing: border-box;
-}
-
-#moreServicesModal .service-card:not(:hover) .front {
+  }
+  
+  #moreServicesModal .service-card:not(:hover) .front {
     opacity: 1;
     transform: scale(1);
-}
-
-#moreServicesModal .service-card:not(:hover) .back {
+  }
+  
+  #moreServicesModal .service-card:not(:hover) .back {
     opacity: 0;
     transform: scale(0.9);
-}
-
-#moreServicesModal .service-card:hover .front {
+  }
+  
+  #moreServicesModal .service-card:hover .front {
     opacity: 0;
     transform: scale(0.9);
-}
-
-#moreServicesModal .service-card:hover .back {
+  }
+  
+  #moreServicesModal .service-card:hover .back {
     opacity: 1;
     transform: scale(1);
-}
-
-#moreServicesModal .service-card h3 {
+  }
+  
+  #moreServicesModal .service-card h3 {
     color: #0056b3;
     margin-bottom: 0.5rem;
     text-align: center;
     font-size: 1.3em;
-}
-
-#moreServicesModal .service-card ul {
+  }
+  
+  #moreServicesModal .service-card ul {
     list-style: none;
     padding: 0;
-}
-
-#moreServicesModal .service-card li {
+  }
+  
+  #moreServicesModal .service-card li {
     margin-bottom: 0.5rem;
-}
-
-#moreServicesModal .service-icon {
+  }
+  
+  #moreServicesModal .service-icon {
     vertical-align: middle;
     margin-right: 0.5rem;
     width: 100%;
@@ -987,30 +987,17 @@ footer {
     display: block;
     margin: 0 auto;
     object-fit: cover;
-}
-
-#moreServicesModal .modal-footer {
+  }
+  
+  #moreServicesModal .modal-footer {
     padding: 10px 20px;
-    text-align: center; 
-}
-
-#moreServicesModal .modal-footer .btn {
-    margin: 0; 
-}
-
-
-/* Cotizar Modal Styles */
-#cotizarModal .modal-body {
-    padding: 20px;
-}
-
-#cotizar-form button[type="submit"] {
-    margin-top: 1rem;
-}
-
-#cotizarModal .modal-header {
-    border-bottom: 1px solid #dee2e6;
-}
+    text-align: center;
+  }
+  
+  #moreServicesModal .modal-footer .btn {
+    margin: 0;
+  }
+  
 
 #cotizarModal .modal-content {
     border-radius: 0.5rem;
@@ -1034,3 +1021,4 @@ footer {
     font-weight: bold;
     color: #343a40;
 }
+

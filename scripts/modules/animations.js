@@ -44,3 +44,21 @@ export function animateServicios() {
         easing: 'easeOutElastic(1, .8)',
     });
 }
+
+export function animateIconsOnView() {
+    const icons = document.querySelectorAll('#por-que-elegirnos .card-image');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const icon = entry.target;
+                icon.classList.add('animate'); // Agrega una clase para la animación
+                observer.unobserve(icon); // Deja de observar después de la primera animación
+            }
+        });
+    }, { threshold: 0.5 }); // Se activa cuando el 50% del ícono es visible
+
+    icons.forEach(icon => observer.observe(icon));
+}
+
+document.addEventListener('DOMContentLoaded', animateIconsOnView);
