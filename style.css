@@ -615,15 +615,6 @@ vertical-align: middle;
     display: flex;
  }
 
-#contact-form input:focus,
-#contact-form textarea:focus {
-    border: 2px solid #409EFF;
-    outline: none;
-    box-shadow: 0 0 5px rgba(64, 158, 255, 0.5);
-    transition: border 0.3s, box-shadow 0.3s;
-}
-
-
 @media (max-width: 768px) {
     .ubicacion-contacto-container {
    flex-direction: column;
@@ -632,6 +623,7 @@ vertical-align: middle;
 
     #ubicacion,
     #contacto {
+        width: 95%;
         margin-bottom: 2rem;
     }
 
