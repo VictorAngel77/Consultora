@@ -594,40 +594,26 @@ vertical-align: middle;
     margin: 0 4px !important; 
   }
 
+  .carousel-scrollable::-webkit-scrollbar {
+    display: none; 
+}
+
+.carousel-scrollable .logo-item {
+    scroll-snap-align: center;
+    flex: 0 0 auto; 
+}
+
 
 /* Ubicacion y Contacto Section Styles */
 .ubicacion-contacto-container {
     flex-direction: row; 
     justify-content: space-around;
     align-items: stretch;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     background-color: #f8f9fa; 
     margin-bottom: 2rem;
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 20px;
-    padding: 20px;
-    scrollbar-width: none; /* Firefox */
-}
-
-.carousel-scrollable::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-}
-
-.carousel-scrollable .logo-item {
-    scroll-snap-align: center;
-    flex: 0 0 auto; /* importante para que se comporten como ítems individuales en el scroll horizontal */
-}
-  
-  
-/* Ubicacion y Contacto Section Styles */
-.ubicacion-contacto-container {
-    flex-direpx;
-    border: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+ }
 
 #contact-form input:focus,
 #contact-form textarea:focus {
@@ -646,15 +632,15 @@ vertical-align: middle;
 
     #ubicacion,
     #contacto {
-        width: 95%;
         margin-bottom: 2rem;
     }
 
         #ubicacion iframe {
-            width: 100%; /* Ajusta el ancho al 100% del contenedor */
-            max-width: 600px; /* Mantén un ancho máximo */
-            height: auto; /* Ajusta la altura automáticamente */
-        }    }
+            width: 100%; 
+            max-width: 600px; 
+            height: auto; 
+        }    
+    }
 
 
 /* Contacto Section Styles */
