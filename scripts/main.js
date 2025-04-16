@@ -74,12 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
         loadContent(url, id, () => {
             pendingSections--;
             if (pendingSections === 0) {
-                // Inicializar funcionalidades una vez cargadas todas las secciones
+
                 setupAnimations();
                 setupScrollToTop();
                 setupNavbar();
                 setupForms();
                 disableCarouselControlsOnSmallScreens();
+                
 
                 const carouselElement = document.querySelector('#logoCarousel');
                 if (carouselElement) {
@@ -156,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Delegación para navegación dinámica (si usás enlaces con data-cargar)
     document.body.addEventListener('click', (event) => {
         const link = event.target.closest('a[data-cargar]');
         if (link) {

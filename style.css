@@ -851,8 +851,8 @@ footer {
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Siempre en la parte izquierda */
-    background-color: #6c757d; /* Gama de gris que resalta */
+    left: 20px; 
+    background-color: #6c757d; 
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -863,18 +863,18 @@ footer {
 }
 
 #scrollToTopBtn:hover {
-    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
+    background-color: #5a6268; 
 }
 
 #scrollToTopBtn img {
-    width: 25px; /* Ajustar el ancho del icono */
+    width: 25px; 
     height: auto;
-    margin: 0 auto; /* Centrar horizontalmente */
+    margin: 0 auto; 
     display: block;
     position: absolute;
-    top: 50%; /* Centrar verticalmente */
-    left: 50%; /* Centrar horizontalmente */
-    transform: translate(-50%, -50%); /* Ajustar para centrar completamente */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
 /* Responsive adjustments for the scroll-to-top button */

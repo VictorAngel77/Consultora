@@ -89,7 +89,6 @@ function ajustarFuenteH3() {
 document.addEventListener('DOMContentLoaded', () => {
     animateIconsOnView();
     ajustarFuenteH3(); 
-    document.activeElement.blur();
 });
 
 window.addEventListener('resize', ajustarFuenteH3);
