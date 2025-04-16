@@ -17,6 +17,8 @@ export function setupAnimations() {
             easing: 'easeOutQuad',
         });
     });
+
+    ajustarFuenteH3(); // Ajustar fuentes en la animación inicial también
 }
 
 // Animaciones para la sección "Por qué elegirnos"
@@ -61,4 +63,36 @@ export function animateIconsOnView() {
     icons.forEach(icon => observer.observe(icon));
 }
 
-document.addEventListener('DOMContentLoaded', animateIconsOnView);
+function ajustarFuenteH3() {
+    const h3s = document.querySelectorAll('h3');
+
+    h3s.forEach(h3 => {
+        const containerWidth = h3.parentElement.offsetWidth;
+        let fontSize = 24; // tamaño inicial
+
+        h3.style.fontSize = fontSize + 'px';
+        h3.style.whiteSpace = 'nowrap';
+        h3.style.display = 'inline-block';
+        h3.style.width = 'auto';
+
+        // Reducir el tamaño hasta que el contenido entre en el contenedor
+        while (h3.scrollWidth > containerWidth && fontSize > 12) {
+            fontSize--;
+            h3.style.fontSize = fontSize + 'px';
+        }
+
+        // Restaurar propiedades para que quede bien visualmente
+        h3.style.display = '';
+        h3.style.whiteSpace = '';
+        h3.style.width = '100%';
+    });
+}
+
+// Ejecutar cuando el DOM está listo
+document.addEventListener('DOMContentLoaded', () => {
+    animateIconsOnView();
+    ajustarFuenteH3(); // Por si se cargan títulos dinámicamente
+});
+
+// También ajustar cuando se redimensiona la ventana
+window.addEventListener('resize', ajustarFuenteH3);
