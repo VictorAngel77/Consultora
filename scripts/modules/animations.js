@@ -1,6 +1,4 @@
 // modules/animations.js
-
-// Importar anime.js
 import anime from 'https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.es.js';
 
 // Agregar animaciones a las secciones
