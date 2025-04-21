@@ -1,126 +1,35 @@
 // modules/forms.js
 
 export function setupForms() {
-    const contactForm = document.getElementById('contact-form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(contactForm);
-            const formDataObject = {}; 
-
-           
-            formDataObject['Nombre'] = formData.get('name');
-            formDataObject['Email'] = formData.get('email');
-            formDataObject['Telefono'] = formData.get('Telefono');
-            formDataObject['Mensaje'] = formData.get('message');
-
-            try {
-                const response = await fetch('https://formspree.io/f/mnnpglob', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(formDataObject)
-                });
-
-                if (response.ok) {
-                    showSuccessModal('Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted a la brevedad. \n' +
-                        '¡Gracias por elegir Bienestar Consultora!');
-                    contactForm.reset();
-                } else {
-                    const errorData = await response.json();
-                    console.error('Form submission error:', errorData);
-                    alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-                }
-            } catch (error) {
-                console.error('Network error:', error);
-                alert('Ocurrió un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.');
-            }
-        });
-    } else {
-        console.log('Contact form not found');
-    }
-
-    const cotizarForm = document.getElementById('cotizar-form');
-
-    if (cotizarForm) {
-        cotizarForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(cotizarForm);
-            const formDataObject = {};
-
-            formData.forEach((value, key) => {
-                formDataObject[key] = value;
+    document.addEventListener("DOMContentLoaded", function () {
+        const formulario = document.getElementById("formulario-contacto");
+      
+        formulario.addEventListener("submit", async function (e) {
+          e.preventDefault(); // Prevenimos el envío normal
+      
+          const formData = new FormData(formulario);
+      
+          try {
+            const response = await fetch(formulario.action, {
+              method: "POST",
+              body: formData,
             });
-
-            try {
-                const response = await fetch('https://formspree.io/f/xzzejykl', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(formDataObject)
-                });
-
-                if (response.ok) {
-                    showSuccessModal('Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted a la brevedad. \n' +
-                    '¡Gracias por elegir Bienestar Consultora!');
-
-                    cotizarForm.reset();
-                } else {
-                    alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
-                }
-            } catch (error) {
-                console.error('Error al enviar el formulario:', error);
-                alert('Ocurrió un error al enviar la solicitud. Por favor, verifica tu conexión.');
+      
+            const resultado = await response.json();
+      
+            if (resultado.success) {
+              showSuccessModal(); // Tu función de modal de éxito
+              formulario.reset();
+            } else {
+              alert("Error: " + resultado.message);
             }
+          } catch (error) {
+            alert("Error inesperado al enviar el formulario.");
+            console.error("Error al enviar:", error);
+          }
         });
-    } else {
-        console.log('Cotizar form not found. Asegúrate de que el contenido del modal se haya cargado correctamente.');
-
-
-        setTimeout(() => {
-            const retryForm = document.getElementById('cotizar-form');
-            if (retryForm) {
-                retryForm.addEventListener('submit', async (event) => {
-                    event.preventDefault();
-
-                    const formData = new FormData(retryForm);
-                    const formDataObject = {};
-
-                    formData.forEach((value, key) => {
-                        formDataObject[key] = value;
-                    });
-
-                    try {
-                        const response = await fetch('https://formspree.io/f/xzzejykl', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json'
-                            },
-                            body: JSON.stringify(formDataObject)
-                        });
-
-                        if (response.ok) {
-                            showSuccessModal('Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted a la brevedad. \n' +
-                                '¡Gracias por elegir Bienestar Consultora!');                            retryForm.reset();
-                        } else {
-                            alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
-                        }
-                    } catch (error) {
-                        console.error('Error al enviar el formulario:', error);
-                        alert('Ocurrió un error al enviar la solicitud. Por favor, verifica tu conexión.');
-                    }
-                });
-            }
-        }, 1000); 
-    }
+      });
+      
 
     function showSuccessModal(message) {
         const modalBody = document.getElementById('successModalBody');
