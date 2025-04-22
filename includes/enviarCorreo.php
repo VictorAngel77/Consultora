@@ -1,49 +1,129 @@
 <?php
-require __DIR__ . '/../PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/../PHPMailer/src/SMTP.php';
-require __DIR__ . '/../PHPMailer/src/Exception.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // -------------------------------------------------------------------------
+    // Configuración del correo electrónico
+    // -------------------------------------------------------------------------
+    $destinatario = "victorangelsanchez7@gmail.com";
+    $asunto_cotizacion = "Nueva Solicitud de Cotización";
+    $asunto_contacto = "Nuevo Mensaje de Contacto";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+    // -------------------------------------------------------------------------
+    // Procesamiento del formulario de Cotización (si los campos existen)
+    // -------------------------------------------------------------------------
+    if (isset($_POST['cotizarNombre']) && isset($_POST['cotizarEmail'])) {
+        $nombre = strip_tags($_POST['cotizarNombre']);
+        $email = filter_var($_POST['cotizarEmail'], FILTER_SANITIZE_EMAIL);
+        $empresa = isset($_POST['cotizarEmpresa']) ? strip_tags($_POST['cotizarEmpresa']) : 'No especificada';
+        $telefono = isset($_POST['cotizarTelefono']) ? strip_tags($_POST['cotizarTelefono']) : 'No especificado';
+        $mensaje = isset($_POST['cotizarMensaje']) ? strip_tags($_POST['cotizarMensaje']) : 'Sin mensaje';
 
-function enviarCorreo($asunto, $cuerpo, $fromEmail, $fromName) {
-    $mail = new PHPMailer(true);
-
-    try {
-        // Configuración del servidor SMTP
-        $mail->isSMTP();
-        $mail->Host       =  'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'victorangelsanchez7@gmail.com'; 
-        $mail->Password   = 'assb sdyz xnrl owst';         
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-
-        $mail->setFrom($_POST['email'] ?? 'no-reply@tusitio.com', $_POST['name'] ?? 'Formulario Web');
-        $mail->addAddress('angelitho7777@gmail.com'); // Donde recibís los mensajes
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Nuevo mensaje de contacto';
-
-        // Cuerpo del mensaje
-        $cuerpo = '<h3>Nuevo mensaje recibido:</h3><ul>';
-        foreach ($_POST as $key => $value) {
-            $cuerpo .= "<li><strong>" . htmlspecialchars($key) . ":</strong> " . nl2br(htmlspecialchars($value)) . "</li>";
+        // Procesar los servicios de interés
+        $servicios = [];
+        for ($i = 1; $i <= 10; $i++) {
+            if (isset($_POST["servicio$i"]) && $_POST["servicio$i"] == 'on') {
+                // Aquí podrías tener un array asociativo para los nombres de los servicios
+                switch ($i) {
+                    case 1:
+                        $servicios[] = "Habilitaciones y Certificaciones";
+                        break;
+                    case 2:
+                        $servicios[] = "Asesoramiento y Supervisión Externa";
+                        break;
+                    case 3:
+                        $servicios[] = "Medición y Estudios Anuales";
+                        break;
+                    case 4:
+                        $servicios[] = "Investigación de Accidentes y Prevención";
+                        break;
+                    case 5:
+                        $servicios[] = "Plan Estratégico de Seguridad";
+                        break;
+                    case 6:
+                        $servicios[] = "Capacitaciones Personalizadas";
+                        break;
+                    case 7:
+                        $servicios[] = "Indumentaria Laboral";
+                        break;
+                    case 8:
+                        $servicios[] = "Desarrollo de Software";
+                        break;
+                    case 9:
+                        $servicios[] = "Recursos Humanos";
+                        break;
+                    case 10:
+                        $servicios[] = "Medio Ambiente";
+                        break;
+                }
+            }
         }
-        $cuerpo .= '</ul>';
+        $servicios_interes = implode(", ", $servicios);
+        if (empty($servicios_interes)) {
+            $servicios_interes = "No se seleccionaron servicios";
+        }
 
-        $mail->Body    = $cuerpo;
-        $mail->AltBody = strip_tags($cuerpo);
+        // Construir el cuerpo del correo electrónico para cotización
+        $cuerpo_cotizacion = "Solicitud de Cotización:\n\n";
+        $cuerpo_cotizacion .= "Nombre: $nombre\n";
+        $cuerpo_cotizacion .= "Email: $email\n";
+        $cuerpo_cotizacion .= "Empresa: $empresa\n";
+        $cuerpo_cotizacion .= "Teléfono: $telefono\n";
+        $cuerpo_cotizacion .= "Servicios de Interés: $servicios_interes\n";
+        $cuerpo_cotizacion .= "Mensaje Adicional:\n$mensaje\n";
 
-        $mail->send();
+        // Encabezados para el correo electrónico
+        $headers = "From: $email\r\n";
+        $headers .= "Reply-To: $email\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-        // Respuesta JSON si lo querés usar desde fetch
-        echo json_encode(['success' => true, 'message' => 'Mensaje enviado con éxito.']);
-    } catch (Exception $e) {
-        http_response_code(500);
-        echo json_encode(['success' => false, 'message' => "Error al enviar: {$mail->ErrorInfo}"]);
+        // Enviar el correo electrónico de cotización
+        if (mail($destinatario, $asunto_cotizacion, $cuerpo_cotizacion, $headers)) {
+            // Éxito al enviar el correo de cotización
+            header("Location: ../index.html?cotizacion_enviada=true#contacto"); // Redirige con un mensaje de éxito
+            exit();
+        } else {
+            // Error al enviar el correo de cotización
+            header("Location: ../index.html?error_cotizacion=true#contacto"); // Redirige con un mensaje de error
+            exit();
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Procesamiento del formulario de Contacto (si los campos existen)
+    // -------------------------------------------------------------------------
+    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+        $nombre_contacto = strip_tags($_POST['name']);
+        $email_contacto = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $telefono_contacto = isset($_POST['Telefono']) ? strip_tags($_POST['Telefono']) : 'No especificado';
+        $mensaje_contacto = strip_tags($_POST['message']);
+
+        // Construir el cuerpo del correo electrónico para contacto
+        $cuerpo_contacto = "Nuevo Mensaje de Contacto:\n\n";
+        $cuerpo_contacto .= "Nombre: $nombre_contacto\n";
+        $cuerpo_contacto .= "Email: $email_contacto\n";
+        $cuerpo_contacto .= "Teléfono: $telefono_contacto\n";
+        $cuerpo_contacto .= "Mensaje:\n$mensaje_contacto\n";
+
+        // Encabezados para el correo electrónico
+        $headers_contacto = "From: $email_contacto\r\n";
+        $headers_contacto .= "Reply-To: $email_contacto\r\n";
+        $headers_contacto .= "MIME-Version: 1.0\r\n";
+        $headers_contacto .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        // Enviar el correo electrónico de contacto
+        if (mail($destinatario, $asunto_contacto, $cuerpo_contacto, $headers_contacto)) {
+            // Éxito al enviar el correo de contacto
+            header("Location: ../index.html?contacto_enviado=true#contacto"); // Redirige con un mensaje de éxito
+            exit();
+        } else {
+            // Error al enviar el correo de contacto
+            header("Location: ../index.html?error_contacto=true#contacto"); // Redirige con un mensaje de error
+            exit();
+        }
     }
 } else {
-    http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Método no permitido']);
+    // Si se intenta acceder al script directamente
+    header("HTTP/1.0 403 Forbidden");
+    exit();
 }
+?>
