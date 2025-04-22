@@ -95,3 +95,30 @@
     </div>
     <a href="#contacto" class="cta-button">¿Vos qué estás esperando? ¡Contáctanos!</a>
 </section>
+
+<style>
+    @media (max-width: 768px) {
+        #iffies .logo-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        #iffies .logo-item {
+            flex: 0 0 calc(25% - 10px); /* Mostrar 4 logos por fila */
+            max-width: calc(25% - 10px);
+            box-sizing: border-box;
+        }
+
+        #iffies .logo-item img {
+            width: 300%; /* Incrementar el tamaño de los logos */
+            height: auto;
+            object-fit: contain;
+        }
+
+        #iffies .carousel-inner {
+            height: auto; /* Ajustar altura automáticamente */
+        }
+    }
+</style>
