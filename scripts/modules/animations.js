@@ -90,6 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
     animateIconsOnView();
     ajustarFuenteH3(); 
     document.activeElement.blur();
+
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                const isFlipped = card.classList.contains('flipped');
+                serviceCards.forEach(c => c.classList.remove('flipped')); // Reset all cards
+                if (!isFlipped) {
+                    card.classList.add('flipped'); // Flip the clicked card
+                }
+            }
+        });
+    });
+
+    // Ensure flipping works on small screens
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768) {
+            serviceCards.forEach(card => {
+                card.classList.remove('flipped'); // Reset state on resize
+            });
+        }
+    });
 });
 
 window.addEventListener('resize', ajustarFuenteH3);

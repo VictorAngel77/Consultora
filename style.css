@@ -415,6 +415,32 @@ header#intro p {
     box-shadow: var(--box-shadow);
 }
 
+@media (max-width: 768px) {
+    .service-card {
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .service-card.flipped {
+        transform: rotateY(180deg);
+    }
+
+    .service-card .front,
+    .service-card .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .service-card .back {
+        transform: rotateY(180deg);
+    }
+}
+
 /* Clientes Section Styles */
 #clientes {
     padding: 2rem;
@@ -504,6 +530,29 @@ header#intro p {
 
     .logo-row {
         justify-content: center;
+    }
+
+    #iffies .logo-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    #iffies .logo-item {
+        flex: 0 0 calc(25% - 10px); 
+        max-width: calc(25% - 10px);
+        box-sizing: border-box;
+    }
+
+    #iffies .logo-item img {
+        width: 300%; 
+        height: auto;
+        object-fit: contain;
+    }
+
+    #iffies .carousel-inner {
+        height: auto; 
     }
 }
 
