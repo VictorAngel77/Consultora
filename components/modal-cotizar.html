@@ -1,107 +1,91 @@
 <div class="modal fade" id="cotizarModal" tabindex="-1" aria-labelledby="cotizarModalLabel">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cotizarModalLabel">Cotizar Ahora</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="cotizar-form">   
-                    <div class="mb-3">
-                        <h3>Servicios de Interés</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio1" value="on" id="servicio1">
-                            <label class="form-check-label" for="servicio1">
-                                Gestión Minera
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio1" value="on" id="servicio1">
-                            <label class="form-check-label" for="servicio1">
-                                Habilitaciones y Certificaciones
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio2" value="on" id="servicio2">
-                            <label class="form-check-label" for="servicio2">
-                                Asesoramiento y Supervisión Externa
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio3" value="on" id="servicio3">
-                            <label class="form-check-label" for="servicio3">
-                                Medición y Estudios Anuales
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio4" value="on" id="servicio4">
-                            <label class="form-check-label" for="servicio4">
-                                Investigación de Accidentes y Prevención
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio5" value="on" id="servicio5">
-                            <label class="form-check-label" for="servicio5">
-                                Plan Estratégico de Seguridad
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio6" value="on" id="servicio6">
-                            <label class="form-check-label" for="servicio6">
-                                Capacitaciones Personalizadas
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio7" value="on" id="servicio7">
-                            <label class="form-check-label" for="servicio7">
-                                Indumentaria Laboral
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio8" value="on" id="servicio8">
-                            <label class="form-check-label" for="servicio8">
-                                Desarrollo de Software
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio9" value="on" id="servicio9">
-                            <label class="form-check-label" for="servicio9">
-                                Recursos Humanos
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicio10" value="on" id="servicio10">
-                            <label class="form-check-label" for="servicio10">
-                                Gestión Ambiental
-                            </label>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cotizarNombre" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="cotizarNombre" name="cotizarNombre" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cotizarEmail" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="cotizarEmail" name="cotizarEmail" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cotizarEmpresa" class="form-label">Empresa</label>
-                        <input type="text" class="form-control" id="cotizarEmpresa" name="cotizarEmpresa">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cotizarTelefono" class="form-label">Teléfono</label>
-                        <input type="tel" class="form-control" id="cotizarTelefono" name="cotizarTelefono">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cotizarMensaje" class="form-label">Mensaje Adicional</label>
-                        <textarea class="form-control" id="cotizarMensaje" name="cotizarMensaje" rows="3"></textarea>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">Enviar solicitud de cotización</button>
-                    </div>
-                </form>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cotizarModalLabel">Cotizar Ahora</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <form id="cotizar-form">
+            <div class="mb-3">
+              <h3>Servicios de Interés</h3>
+  
+              <!-- Cambié todos los name="servicios[]" y IDs únicos -->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Gestión Minera" id="servicio1">
+                <label class="form-check-label" for="servicio1">Gestión Minera</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Habilitaciones y Certificaciones" id="servicio2">
+                <label class="form-check-label" for="servicio2">Habilitaciones y Certificaciones</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Asesoramiento y Supervisión Externa" id="servicio3">
+                <label class="form-check-label" for="servicio3">Asesoramiento y Supervisión Externa</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Medición y Estudios Anuales" id="servicio4">
+                <label class="form-check-label" for="servicio4">Medición y Estudios Anuales</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Investigación de Accidentes y Prevención" id="servicio5">
+                <label class="form-check-label" for="servicio5">Investigación de Accidentes y Prevención</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Plan Estratégico de Seguridad" id="servicio6">
+                <label class="form-check-label" for="servicio6">Plan Estratégico de Seguridad</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Capacitaciones Personalizadas" id="servicio7">
+                <label class="form-check-label" for="servicio7">Capacitaciones Personalizadas</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Indumentaria Laboral" id="servicio8">
+                <label class="form-check-label" for="servicio8">Indumentaria Laboral</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Desarrollo de Software" id="servicio9">
+                <label class="form-check-label" for="servicio9">Desarrollo de Software</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Recursos Humanos" id="servicio10">
+                <label class="form-check-label" for="servicio10">Recursos Humanos</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="servicios[]" value="Gestión Ambiental" id="servicio11">
+                <label class="form-check-label" for="servicio11">Gestión Ambiental</label>
+              </div>
+            </div>
+  
+            <!-- Datos personales -->
+            <div class="mb-3">
+              <label for="cotizarNombre" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="cotizarNombre" name="cotizarNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="cotizarEmail" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="cotizarEmail" name="cotizarEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="cotizarEmpresa" class="form-label">Empresa</label>
+              <input type="text" class="form-control" id="cotizarEmpresa" name="cotizarEmpresa">
+            </div>
+            <div class="mb-3">
+              <label for="cotizarTelefono" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="cotizarTelefono" name="cotizarTelefono">
+            </div>
+            <div class="mb-3">
+              <label for="cotizarMensaje" class="form-label">Mensaje Adicional</label>
+              <textarea class="form-control" id="cotizarMensaje" name="cotizarMensaje" rows="3"></textarea>
+            </div>
+  
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">Enviar solicitud de cotización</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
